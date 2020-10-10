@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLoadScript, GoogleMap, Marker, infoWindow } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
@@ -33,3 +34,4 @@ function Map() {
 }
 
 export default Map;
+
