@@ -16,6 +16,24 @@ function App() {
 
   useEffect(() => {
 
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if(authUser){
+        dispatch({
+          type: "SET_USER",
+          user: authUser
+        })
+
+      }else {
+        dispatch({
+          type: "SET_USER",
+          user: null
+        })
+      }
+    })
+
+    return () => {
+      unsubscribe();
+    }
 
   }, [])
 
