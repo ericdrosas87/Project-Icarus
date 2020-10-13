@@ -1,35 +1,66 @@
-import React from "react";
-import { useLoadScript, GoogleMap, Marker, infoWindow } from "@react-google-maps/api";
-import { formatRelative } from "date-fns";
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
-const libraries = ["places"];
-const mapConstainerStyle = {
-  width: '100vw',
-  height: '100vh',
-};
-const center = {
-  lat: 32.222607,
-  lng: -110.974709,
+const mapStyles = {
+  width: '100%',
+  height: '100%'
 };
 
-function Map() {
-    const {isLoaded, loadError} = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-        libraries,
-      })
-    
-    if (loadError) return "Error loading maps";
-    if(!isLoaded) return "Loading Maps";
-    
-    return ( 
-        <div>
-            <GoogleMap 
-            mapConstainerStyle={mapConstainerStyle} 
-            zoom={8} 
-            center={center}
-            ></GoogleMap>
-        </div>
-    )
+export class MapContainer extends Component {
+  
+  state = {
+    showingInfoWindow: false,  // Hides or shows the InfoWindow
+    activeMarker: {},          // Shows the active marker upon click
+    selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
+  };
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+  
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        zoom={14}
+        style={mapStyles}
+        initialCenter={
+          {
+            lat: 32.222607,
+            lng: -110.974709
+          }
+        }
+      >
+      <Marker
+          onClick={this.onMarkerClick}
+          name={'Tucson, Arizona'}
+        />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
+        </InfoWindow>
+      </Map>  
+    );
+  }
 }
 
-export default Map;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDDPLavyjBmlsZmChJTKgO5T3H5GdBXCrE'
+})(MapContainer);
