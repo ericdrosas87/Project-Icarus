@@ -1,0 +1,11 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+}
+
+.bg-light {
+  background-color: #8584ad;
+}
+
+.navbar-brand span {
+  color: red;
+}

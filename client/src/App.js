@@ -1,18 +1,21 @@
-import React, {useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import './App.css';
-import Login from './component/Login'
-import Contact from './component/Contact'
-import Map from './component/Map'
-import Landing from './component/Landing'
-import {useStateValue} from './utils/StateProvider'
-import {auth} from './config/firebaseDB'
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Login from "./component/Login";
+import Contact from "./component/Contact";
+import Map from "./component/Map";
+import NavBar from "./component/NavBar";
+import Footer from "./component/Footer";
+import Wrapper from "./component/Wrapper";
+import Landing from "./component/Landing";
+import Info from "./component/Info";
+import Store from "./component/Store";
 
-
+import { useStateValue } from "./utils/StateProvider";
+import { auth } from "./config/firebaseDB";
 
 function App() {
-
-  const [{user}, dispatch] = useStateValue()
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
 
@@ -37,27 +40,36 @@ function App() {
 
   }, [])
 
-  console.log("user is >>>", user)
-
+  console.log("user is >>>", user);
   return (
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <Login/>
-        </Route>
-        <Route path='/map'>
-          <Map/>
-        </Route>
-        <Route path='/contact'>
-          <Contact/>
-        </Route>
-        <Route path='/'>
-          <Landing/>
-        </Route>
-
-      </Switch>
-    </Router>
-    
+    <div className="app">
+      <Router>
+        <NavBar />
+        <Wrapper>
+          <Switch>
+            <Route path="/about">
+              <Info />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/map">
+              <Map />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/store">
+              <Store />
+            </Route>
+            <Route path="/" component={Info}>
+              <Landing />
+            </Route>
+          </Switch>
+          <Footer />
+        </Wrapper>
+      </Router>
+    </div>
   );
 }
 
