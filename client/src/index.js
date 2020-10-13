@@ -21,7 +21,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* initialstate and reducer are part of the context API */}
     <StateProvider initialState={initialState} reducer={reducer}>
-      <App />,
+      <App />
     </StateProvider>
   </React.StrictMode>,
 
