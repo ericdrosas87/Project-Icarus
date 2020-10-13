@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+}
+
+.landing {
+  background: #f2f2f2;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 1;
+  margin-bottom: -150px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(180vh at 50% center);
+}

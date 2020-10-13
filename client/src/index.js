@@ -3,16 +3,28 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import {StateProvider} from './utils/StateProvider'
-import reducer, {initialState} from './utils/reducer'
+import { StateProvider } from "./utils/StateProvider";
+import reducer, { initialState } from "./utils/reducer";
+import "bootstrap/dist/css/bootstrap.css";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faPhoneAlt,
+  faBuilding,
+  faEnvelopeOpenText,
+  faFeatherAlt,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(fab, faPhoneAlt, faBuilding, faEnvelopeOpenText, faFeatherAlt);
 
 ReactDOM.render(
-<React.StrictMode>
+  <React.StrictMode>
     {/* initialstate and reducer are part of the context API */}
     <StateProvider initialState={initialState} reducer={reducer}>
-        <App />,
+      <App />,
     </StateProvider>
-</React.StrictMode>,
+  </React.StrictMode>,
 
-    document.getElementById("root"));
+  document.getElementById("root")
+);
 registerServiceWorker();
