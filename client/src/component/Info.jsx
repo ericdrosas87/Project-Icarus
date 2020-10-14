@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Info() {
   return (
-    <div class="about">
+    <div className="about">
       <h2>
         <FontAwesomeIcon icon="feather-alt" />
         <span>project</span>Icharus
       </h2>
-      <div class="block info1 animate__animated animate__slideInDown">
+      <div className="block info1 animate__animated animate__slideInDown">
         <img src="./images/placeHolder1.JPG" alt="image1" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -19,7 +19,7 @@ function Info() {
           tincidunt.
         </p>
       </div>
-      <div class="block info2 animate__animated animate__slideInRight">
+      <div className="block info2 animate__animated animate__slideInRight">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Et
@@ -29,7 +29,7 @@ function Info() {
         </p>
         <img src="./images/placeHolder.JPG" alt="image2" />
       </div>
-      <div class="block info3 animate__animated animate__zoomIn">
+      <div className="block info3 animate__animated animate__zoomIn">
         <img src="./images/placeHolder5.JPG" alt="image3" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -39,7 +39,7 @@ function Info() {
           mattis ullamcorper velit sed.
         </p>
       </div>
-      <div class="block info4 animate__animated animate__slideInLeft">
+      <div className="block info4 animate__animated animate__slideInLeft">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui ut
@@ -48,7 +48,7 @@ function Info() {
         </p>
         <img src="./images/placeHolder3.JPG" alt="image1" />
       </div>
-      <div class="block info5 animate__animated animate__slideInUp">
+      <div className="block info5 animate__animated animate__slideInUp">
         <img src="./images/placeHolder4.JPG" alt="image1" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

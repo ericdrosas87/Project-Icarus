@@ -62,7 +62,7 @@ function App() {
             <Route path="/store">
               <Store />
             </Route>
-            <Route path="/" component={Info}>
+            <Route path="/">
               <Landing />
             </Route>
           </Switch>
