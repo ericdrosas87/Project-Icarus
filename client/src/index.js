@@ -14,14 +14,30 @@ import {
   faBuilding,
   faEnvelopeOpenText,
   faFeatherAlt,
+  faUserShield,
+  faSchool,
+  faVoteYea,
+  faBalanceScale,
+  faFingerprint,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faPhoneAlt, faBuilding, faEnvelopeOpenText, faFeatherAlt);
+library.add(
+  fab,
+  faPhoneAlt,
+  faBuilding,
+  faEnvelopeOpenText,
+  faFeatherAlt,
+  faUserShield,
+  faSchool,
+  faVoteYea,
+  faBalanceScale,
+  faFingerprint
+);
 
 ReactDOM.render(
   <React.StrictMode>
     {/* initialstate and reducer are part of the context API */}
     <StateProvider initialState={initialState} reducer={reducer}>
-      <App />,
+      <App />
     </StateProvider>
   </React.StrictMode>,
 

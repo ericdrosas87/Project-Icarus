@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./style/landing.css";
-import Login from "./Login";
-import Store from "./Store";
-import Info from "./Info";
+import Logo from "./Logo";
 
 class Landing extends Component {
   render() {
-    return <div class="landing"></div>;
+    return (
+      <div class="landing">
+        <div className="container">
+          <Logo />
+        </div>
+      </div>
+    );
   }
 }
 
