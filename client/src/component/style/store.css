@@ -38,6 +38,7 @@ body {
 }
 
 .store {
+  margin-top: 50px;
   position: relative;
   width: 1100px;
   display: flex;
