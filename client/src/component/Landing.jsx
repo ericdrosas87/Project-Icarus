@@ -9,5 +9,5 @@ function Landing() {
   )
 }
 
-export default Landing
+export default Landing;
 
