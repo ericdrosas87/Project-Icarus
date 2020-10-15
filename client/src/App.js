@@ -10,6 +10,7 @@ import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
+import UserInterface from './component/UserInterface'
 
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
@@ -61,6 +62,9 @@ function App() {
             </Route>
             <Route path="/store">
               <Store />
+            </Route>
+            <Route path="/myaccount">
+              <UserInterface />
             </Route>
             <Route path="/">
               <Landing />

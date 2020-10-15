@@ -81,6 +81,13 @@ function Navbar() {
               </div>
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to={user && '/myaccount'}>
+              <div className="nav-link">
+                <span>{user ? "My Account" : ""}</span>
+              </div>
+            </Link>
+          </li>
 
         </ul>
       </div>
