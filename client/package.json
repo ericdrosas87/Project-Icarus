@@ -16,10 +16,14 @@
     "font-awesome": "^4.7.0",
     "google-maps-react": "^2.0.6",
     "loader": "^2.1.1",
+    "mongoose": "^5.10.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.1",
+    "react-slick": "^0.27.11",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.0",
     "url-loader": "^4.1.1"
   },
   "scripts": {
