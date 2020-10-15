@@ -75,7 +75,7 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link to={!user && '/login'}>
+            <Link to={!user && '/login' || user && '/'}>
               <div onClick={login} className="nav-link">
                 <span>{user ? "Sign out" : "Sign In"}</span>
               </div>
