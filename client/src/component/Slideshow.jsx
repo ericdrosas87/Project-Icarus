@@ -19,11 +19,11 @@ class Slideshow extends React.Component {
           className="slider"
           dots={true}
           infinite={true}
-          speed={5000}
+          speed={2000}
           slidesToShow={1}
           slidesToScroll={1}
         >
-          <Page className="slide logo">
+          <Page className="slide logo1">
             <div className="icon">
               <FontAwesomeIcon icon="feather-alt" />
             </div>
@@ -43,19 +43,19 @@ class Slideshow extends React.Component {
           <Page className="slide One">
             <div>Image 1</div>
             <div className="image">
-              <img src="./images/placeHolder6.JPG" />
+              <img src="./images/topView.png" />
             </div>
           </Page>
           <Page className="slide Two">
             <div>Image 2</div>
             <div className="image">
-              <img src="./images/placeHolder3.JPG" />
+              <img src="./images/sideView.png" />
             </div>
           </Page>
           <Page className="slide Three">
             <div>Image 3</div>
             <div className="image">
-              <img src="./images/placeHolder5.JPG" />
+              <img src="./images/closehandle.png" />
             </div>
           </Page>
         </Slider>

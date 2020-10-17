@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import "./style/map.css";
 
-const mapStyles = {
-  width: "75VW",
-  height: "75VH",
-};
-
 export class MapContainer extends Component {
   state = {
     showingInfoWindow: false, // Hides or shows the InfoWindow
@@ -38,7 +33,6 @@ export class MapContainer extends Component {
             className="mapContainer"
             google={this.props.google}
             zoom={14}
-            style={mapStyles}
             initialCenter={{
               lat: 32.222607,
               lng: -110.974709,
