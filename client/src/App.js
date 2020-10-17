@@ -4,8 +4,8 @@ import "./App.css";
 import Login from "./component/Login";
 import Contact from "./component/Contact";
 import Map from "./component/Map";
-/* import NavBar from "./component/NavBar"; */
-import NavBar2 from "./component/NavBar2";
+import NavBar from "./component/NavBar";
+/* import NavBar2 from "./component/NavBar2"; */
 import Footer from "./component/Footer";
 import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
@@ -44,7 +44,7 @@ function App() {
     <div className="app">
       <Router>
         <div className="navbar">
-          <NavBar2 />
+          <NavBar />
         </div>
         <div className="wrapper">
           <Wrapper>
