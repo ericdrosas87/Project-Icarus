@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.slider {
+  border: black 1px solid;
+  max-height: 90vh;
+  max-width: 90vw;
+}
+
+.slide {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: black;
+}
+
+.slide h3,
+h4,
+h5 {
+  color: #a69b8f;
+}
+
+.image {
+  width: auto;
+  height: auto;
+}
+
+.logo1 {
+  margin: 60px;
+  font-size: 5em;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 3em;
+}
+
+.mission {
+  margin: 100px;
+}
+
+.logo1 span {
+  color: red;
+  font-weight: initial;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image img {
+  min-height: 400px;
+  max-width: 1000px;
+  max-height: 600px;
+}

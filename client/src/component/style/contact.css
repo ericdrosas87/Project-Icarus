@@ -30,6 +30,7 @@ ul {
 
 .wrap {
   box-shadow: 0 0 20px 0 #a69b8f;
+  background: #7b9aa6;
 }
 /*-everything in wrapper get padding-*/
 .wrap > * {
@@ -60,6 +61,8 @@ ul {
 
 .contact form label {
   display: block;
+  color: black;
+  font-size: 14px;
 }
 
 .contact form p {

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style/landing.css";
-import Login from "./Login";
-import Store from "./Store";
-import Info from "./Info";
+import Slideshow from "./Slideshow";
 
-class Landing extends Component {
-  render() {
-    return <div class="landing"></div>;
-  }
+function Landing() {
+  return (
+    <div className="landing">
+      <Slideshow />
+    </div>
+  );
 }
 
 export default Landing;
