@@ -4,5 +4,10 @@
 }
 
 .mapContainer {
-  width: 90%;
+  margin: 25px;
+  margin-left: 30px;
+  margin-right: 30px;
+  max-width: 80%;
+  max-height: 90%;
+  border: black 2px solid;
 }
