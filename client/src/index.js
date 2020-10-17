@@ -14,8 +14,24 @@ import {
   faBuilding,
   faEnvelopeOpenText,
   faFeatherAlt,
+  faUserShield,
+  faSchool,
+  faVoteYea,
+  faBalanceScale,
+  faFingerprint,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faPhoneAlt, faBuilding, faEnvelopeOpenText, faFeatherAlt);
+library.add(
+  fab,
+  faPhoneAlt,
+  faBuilding,
+  faEnvelopeOpenText,
+  faFeatherAlt,
+  faUserShield,
+  faSchool,
+  faVoteYea,
+  faBalanceScale,
+  faFingerprint
+);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -60,6 +60,8 @@ ul {
 
 .contact form label {
   display: block;
+  color: black;
+  font-size: 14px;
 }
 
 .contact form p {

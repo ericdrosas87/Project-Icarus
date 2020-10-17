@@ -26,6 +26,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "babel-runtime": "^6.6.1",
+    "@react-google-maps/api": "^1.11.0",
+    "animate.css": "^4.1.1",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
@@ -51,6 +54,9 @@
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
     "prop-types": "^15.5.10",
+    "google-maps-react": "^2.0.6",
+    "loader": "^2.1.1",
+    "mongoose": "^5.10.9",
     "react": "^16.6.3",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^16.6.3",
@@ -62,6 +68,11 @@
     "url-loader": "^0.5.7",
     "use-places-autocomplete": "^1.5.4",
     "webpack": "^1.13.0"
+    "react-slick": "^0.27.11",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.0",
+    "url-loader": "^4.1.1"
+
   },
   "scripts": {
     "start": "react-scripts start",

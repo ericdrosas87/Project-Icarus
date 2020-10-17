@@ -1,3 +1,4 @@
+
 import React from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
@@ -88,10 +89,14 @@ export default function Map () {
             onCloseClick={() => {
               setSelected(null);}}
           >
+
+
+
           <div>
             <h2>Marker Placed</h2>
             <p>Placed at {formatRelative(selected.time, new Date())}</p>
           </div>
+
         </InfoWindow>) : null}
       </GoogleMap>
     </div>
@@ -121,3 +126,4 @@ export default function Map () {
   )
 
 } */
+
