@@ -11,6 +11,7 @@ import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
 import UserInterface from './component/UserInterface'
+import Profile from './component/Profile'
 
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
@@ -64,7 +65,14 @@ function App() {
               <Store />
             </Route>
             <Route path="/myaccount">
-              <UserInterface />
+              <Switch>
+                <Route>
+                  <UserInterface />
+                </Route>
+                <Route path='/edit'>
+                  <Profile/>
+                </Route>
+              </Switch>
             </Route>
             <Route path="/">
               <Landing />

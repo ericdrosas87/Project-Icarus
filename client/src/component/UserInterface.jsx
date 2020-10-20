@@ -2,17 +2,26 @@ import React from 'react'
 import {useStateValue} from '../utils/StateProvider'
 import {Link} from 'react-router-dom'
 import './style/userInterface.css'
+import { auth } from "../config/firebaseDB";
+import Profile from './Profile'
 
 function UserInterface() {
-    const [{orders, user}] = useStateValue();
+    const [{user}, dispatch] = useStateValue()
 
+    const deleteUser = () => {
+        auth.currentUser.delete()
+    }
 
     return (
-        <div className="userInterface">
-            <h1>{user.email}</h1>
+        <div className="jumbotron">
+            <h1>hello</h1>
 
             <div className="details">
                 <h3>Here we will show account information</h3>
+
+                <Link to='/edit'>
+                 <h4>Edit Your Profile</h4>
+                </Link>
                 <br/>
                 <Link to='/404'>
                  <h4>Connect New Product</h4>
@@ -26,11 +35,11 @@ function UserInterface() {
                  <h4>Add new Geo-fence</h4>
                 </Link>
                 <br/>
-                <Link >
-                 <h4>Delete Account</h4>
+                <Link to='/'>
+                 <button onClick={deleteUser}>Delete Account</button>
                 </Link>
-
             </div>
+            {/* <Profile/> */}
         </div>
     )
 }
