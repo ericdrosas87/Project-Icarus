@@ -4,7 +4,7 @@ import "./style/store.css";
 function Store() {
   return (
     <div className="store">
-      <div className="card animate__animated animate__lightSpeedInLeft">
+      <div className="cards animate__animated animate__lightSpeedInLeft">
         <div className="card-image">
           <img src="./images/placeHolder6.JPG" alt="stage1" />
         </div>
@@ -18,7 +18,7 @@ function Store() {
           </p>
         </div>
       </div>
-      <div className="card animate__animated animate__zoomIn">
+      <div className="cards animate__animated animate__zoomIn">
         <div className="card-image">
           <img src="./images/placeHolder2.JPG" alt="stage2" />
         </div>
@@ -32,7 +32,7 @@ function Store() {
           </p>
         </div>
       </div>
-      <div className="card animate__animated animate__lightSpeedInRight">
+      <div className="cards animate__animated animate__lightSpeedInRight">
         <div className="card-image">
           <img src="./images/placeHolder3.JPG" alt="stage3" />
         </div>
