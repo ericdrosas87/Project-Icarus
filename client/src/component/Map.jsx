@@ -1,6 +1,5 @@
-
 import React from "react";
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker, InfoWindow, DrawingManager, LoadScript } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
 import mapStyles from "./mapStyles";
 //import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
@@ -49,15 +48,7 @@ export default function Map () {
 
   return (
     <div>
-      <h1>
-        Icarus logo here
-        <span role="img">
-         
-        </span>
-      </h1>
-
-      
-
+    
       <GoogleMap 
       mapContainerStyle={mapContainerStyle} 
       zoom={12} 
@@ -65,20 +56,21 @@ export default function Map () {
       options={options}
       onClick={onMapClick}
       onLoad={onMapLoad}
-      >
+      > 
+
         {markers.map((marker => 
           <Marker 
             key={marker.time.toISOString()} 
-            position={{lat: marker.lat, lng: marker.lng}}
-            //icon={{
-             // url: '/', link new icon image here
-             // scaledSize: new window.google.maps.Size( 30, 30),
-             // origin: new window.google.maps.Point( 0, 0 ),
-             // anchor: new window.google.maps.Point( 15, 15 ),
-            //}}
-            onClick={() => {
-              setSelected(marker);
+            position={{ lat: marker.lat, lng: marker.lng }}
+            icon={{
+             url: '/images/maplock.png',
+             scaledSize: new window.google.maps.Size( 30, 30),
+             origin: new window.google.maps.Point( 30, 0 ),
+             anchor: new window.google.maps.Point( 15, 15 ),
             }}
+            // onClick={() => {
+            //   setSelected(marker);
+            // }}
           />
         ))}
 
@@ -92,10 +84,10 @@ export default function Map () {
 
 
 
-          <div>
+          {/* <div>
             <h2>Marker Placed</h2>
             <p>Placed at {formatRelative(selected.time, new Date())}</p>
-          </div>
+          </div> */}
 
         </InfoWindow>) : null}
       </GoogleMap>
