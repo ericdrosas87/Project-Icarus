@@ -1,7 +1,6 @@
 import React from "react";
 
 import { GoogleMap, useLoadScript, Marker, InfoWindow, DrawingManager, LoadScript } from "@react-google-maps/api";
-==
 import { formatRelative } from "date-fns";
 import mapStyles from "./mapstyles";
 import "./style/map.css";
