@@ -9,25 +9,25 @@ function UserInterface() {
 
     return (
         <div className="userInterface">
-            <h1>Hello {user?.email}</h1>
+            <h1>{user.email}</h1>
 
             <div className="details">
-                <h2>Here we will show account information</h2>
+                <h3>Here we will show account information</h3>
                 <br/>
                 <Link to='/404'>
-                 <h3>Connect New Product</h3>
+                 <h4>Connect New Product</h4>
                 </Link>
                 <br/>
                 <Link to='/404'>
-                 <h3>Delete existing product</h3>
+                 <h4>Delete existing product</h4>
                 </Link>
                 <br/>
                 <Link to='/map'>
-                 <h3>Add new Geo-fence</h3>
+                 <h4>Add new Geo-fence</h4>
                 </Link>
                 <br/>
                 <Link >
-                 <h3>Delete Account</h3>
+                 <h4>Delete Account</h4>
                 </Link>
 
             </div>
