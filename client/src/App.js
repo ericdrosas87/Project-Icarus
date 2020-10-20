@@ -11,8 +11,8 @@ import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
-import UserInterface from "./component/UserInterface";
-
+import UserInterface from './component/UserInterface'
+import Profile from './component/Profile'
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
@@ -43,37 +43,40 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <div className="navbar">
-          <NavBar2 />
-        </div>
-        <div className="wrapper">
-          <Wrapper>
-            <Switch>
-              <Route path="/about">
-                <Info />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/map">
-                <Map />
-              </Route>
-              <Route path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/store">
-                <Store />
-              </Route>
-              <Route path="/myaccount">
-                <UserInterface />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
-            <Footer />
-          </Wrapper>
-        </div>
+        <NavBar />
+        <Wrapper>
+          <Switch>
+            <Route path="/about">
+              <Info />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/map">
+              <Map />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/store">
+              <Store />
+            </Route>
+            <Route path="/myaccount">
+              <Switch>
+                <Route>
+                  <UserInterface />
+                </Route>
+                <Route path='/edit'>
+                  <Profile/>
+                </Route>
+              </Switch>
+            </Route>
+            <Route path="/">
+              <Landing />
+            </Route>
+          </Switch>
+          <Footer />
+        </Wrapper>
       </Router>
     </div>
   );

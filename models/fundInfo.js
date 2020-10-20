@@ -5,7 +5,11 @@ const userInfo = new Schema ({
     name:{type :String, required:true},
     address:{type: String, required:true},
     email:{type: String, required:true},
-    phone:{type: Number, required:true}
+    phone:{type: Number, required:true},
+    product: [{
+        name: String,
+        
+    }]
 })
 
 const Patreon = mongoose.model('Patreon', userInfo);
