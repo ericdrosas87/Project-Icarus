@@ -4,7 +4,8 @@ import "./App.css";
 import Login from "./component/Login";
 import Contact from "./component/Contact";
 import Map from "./component/Map";
-import NavBar from "./component/NavBar";
+/* import NavBar from "./component/NavBar"; */
+import NavBar2 from "./component/NavBar2";
 import Footer from "./component/Footer";
 import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
@@ -12,7 +13,6 @@ import Info from "./component/Info";
 import Store from "./component/Store";
 import UserInterface from './component/UserInterface'
 import Profile from './component/Profile'
-
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
@@ -20,27 +20,24 @@ function App() {
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
-
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      if(authUser){
+      if (authUser) {
         dispatch({
           type: "SET_USER",
-          user: authUser
-        })
-
-      }else {
+          user: authUser,
+        });
+      } else {
         dispatch({
           type: "SET_USER",
-          user: null
-        })
+          user: null,
+        });
       }
-    })
+    });
 
     return () => {
       unsubscribe();
-    }
-
-  }, [])
+    };
+  }, []);
 
   console.log("user is >>>", user);
   return (
