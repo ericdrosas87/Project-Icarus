@@ -4,5 +4,37 @@
 }
 
 .mapContainer {
-  width: 90%;
+  margin: 25px;
+  margin-left: 30px;
+  margin-right: 30px;
+  max-width: auto;
+  max-height: auto;
+  border: black 2px solid;
+  grid-area: map;
+}
+
+.map {
+  height: 90vh;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "logo map map"
+    ". map map"
+    ". . legend";
+}
+
+.mapLogo {
+  border: solid black 2px;
+  grid-area: logo;
+}
+.legend {
+  border: 2px solid black;
+  background: red;
+  grid-area: legend;
+  width: auto;
+  height: 100px;
 }
