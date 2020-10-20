@@ -1,10 +1,7 @@
 import React from "react";
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
+
+import { GoogleMap, useLoadScript, Marker, InfoWindow, DrawingManager, LoadScript } from "@react-google-maps/api";
+==
 import { formatRelative } from "date-fns";
 import mapStyles from "./mapstyles";
 import "./style/map.css";
@@ -55,54 +52,50 @@ export default function Map() {
   if (!isLoaded) return "Loading Maps";
 
   return (
-    <div className="map">
-      <div className="mapLogo">
-        <h1>
-          Icarus logo here
-          <span role="img"></span>
-        </h1>
-      </div>
-      <div className="mapContainer">
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={12}
-          center={center}
-          options={options}
-          onClick={onMapClick}
-          onLoad={onMapLoad}
-        >
-          {markers.map((marker) => (
-            <Marker
-              key={marker.time.toISOString()}
-              position={{ lat: marker.lat, lng: marker.lng }}
-              //icon={{
-              // url: '/', link new icon image here
-              // scaledSize: new window.google.maps.Size( 30, 30),
-              // origin: new window.google.maps.Point( 0, 0 ),
-              // anchor: new window.google.maps.Point( 15, 15 ),
-              //}}
-              onClick={() => {
-                setSelected(marker);
-              }}
-            />
-          ))}
+    <div>
+    
+      <GoogleMap 
+      mapContainerStyle={mapContainerStyle} 
+      zoom={12} 
+      center={center}
+      options={options}
+      onClick={onMapClick}
+      onLoad={onMapLoad}
+      > 
 
-          {selected ? (
-            <InfoWindow
-              position={{ lat: selected.lat, lng: selected.lng }}
-              onCloseClick={() => {
-                setSelected(null);
-              }}
-            >
-              <div>
-                <h2>Marker Placed</h2>
-                <p>Placed at {formatRelative(selected.time, new Date())}</p>
-              </div>
-            </InfoWindow>
-          ) : null}
-        </GoogleMap>
-      </div>
-      <div className="legend"></div>
+        {markers.map((marker => 
+          <Marker 
+            key={marker.time.toISOString()} 
+            position={{ lat: marker.lat, lng: marker.lng }}
+            icon={{
+             url: '/images/maplock.png',
+             scaledSize: new window.google.maps.Size( 30, 30),
+             origin: new window.google.maps.Point( 30, 0 ),
+             anchor: new window.google.maps.Point( 15, 15 ),
+            }}
+            // onClick={() => {
+            //   setSelected(marker);
+            // }}
+          />
+        ))}
+
+        
+        {selected ? (
+          <InfoWindow 
+            position={{ lat: selected.lat, lng: selected.lng }} 
+            onCloseClick={() => {
+              setSelected(null);}}
+          >
+
+
+
+          {/* <div>
+            <h2>Marker Placed</h2>
+            <p>Placed at {formatRelative(selected.time, new Date())}</p>
+          </div> */}
+
+        </InfoWindow>) : null}
+      </GoogleMap>
     </div>
   );
 }
