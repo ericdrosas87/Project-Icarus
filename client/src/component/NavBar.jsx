@@ -48,9 +48,17 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link to="/map">
+            <Link to="/store">
               <a className="nav-link">
-                <span>GPS</span>
+                <span>Store</span>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to={user && "/map"}>
+              <a className="nav-link">
+                <span>{user ? 'GPS' : null} </span>
               </a>
             </Link>
           </li>
@@ -64,17 +72,9 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link to="/store">
-              <a className="nav-link">
-                <span>Store</span>
-              </a>
-            </Link>
-          </li>
-
-          <li className="nav-item">
             <Link to={!user && '/login' || user && '/'}>
               <div onClick={login} className="nav-link">
-                <span>{user ? "Sign out" : "Sign In"}</span>
+                <span>{user ? "Sign out" : "Sign In/Register"}</span>
               </div>
             </Link>
           </li>

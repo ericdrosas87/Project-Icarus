@@ -1,7 +1,8 @@
 // this is the store
 export const initialState = {
     orders:[],
-    user: null
+    user: null,
+    isChecked: false
 }
 
 function reducer(state, action) {

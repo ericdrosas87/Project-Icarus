@@ -13,7 +13,7 @@ function UserInterface() {
 
     return (
         <div className="jumbotron">
-            <h1>{user.email}</h1>
+            <h1></h1>
 
             <div className="details">
                 <h3>Here we will show account information</h3>
