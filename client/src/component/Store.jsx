@@ -1,7 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import API from '../utils/API'
+import {useStateValue} from '../utils/StateProvider'
 import "./style/store.css";
 
 function Store() {
+
+  const [{orders}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    API.getAllItems()
+    .then(res => dispatch({
+      type: "GET_ITEMS",
+      orders: res.data[0].product[0]
+    }))
+    .catch(err => console.log(err))
+    return () => {
+      console.log('this is orders', orders)
+    }
+  }, [])
+
+  function getProduct() {
+
+  }
+
+
+  console.log('this is orders>>>', orders)
+
   return (
     <div className="store">
       <div className="cards animate__animated animate__lightSpeedInLeft">
@@ -46,6 +70,16 @@ function Store() {
           </p>
         </div>
       </div>
+        {/* <button onClick={() => getProduct()}>Click here for order info</button> */}
+      <div className="jumbotron">
+        <ul>
+          <li><p>{orders.name}</p></li>
+          <li><img src={orders.image} alt=""/></li>
+          <li><p></p></li>
+          <li><p></p></li>
+        </ul> 
+      </div>
+                       
     </div>
   );
   /*INITIAL SETUP*/
