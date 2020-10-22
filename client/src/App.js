@@ -11,8 +11,9 @@ import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
-import UserInterface from './component/UserInterface'
-import Profile from './component/Profile'
+import UserInterface from './component/myaccount/components/UserInterface'
+import Profile from './component/myaccount/components/Profile'
+import NotFound from './component/NotFound'
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
@@ -62,14 +63,13 @@ function App() {
               <Store />
             </Route>
             <Route path="/myaccount">
-              <Switch>
-                <Route>
-                  <UserInterface />
-                </Route>
-                <Route path='/edit'>
-                  <Profile/>
-                </Route>
-              </Switch>
+              <UserInterface/>
+            </Route>
+            <Route exact path={user ? '/edit' : '/404'}>
+              <Profile/>
+            </Route>
+            <Route path='/404'>
+              <NotFound/>
             </Route>
             <Route path="/">
               <Landing />

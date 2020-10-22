@@ -16,6 +16,7 @@ export default function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         // once successful redirect to homepage
+        
         history.push("/");
       })
       .catch((e) => alert(e.message));
