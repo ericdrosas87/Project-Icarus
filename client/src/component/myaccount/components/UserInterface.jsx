@@ -1,9 +1,8 @@
 import React from 'react'
-import {useStateValue} from '../utils/StateProvider'
+import {useStateValue} from '../../../utils/StateProvider'
 import {Link} from 'react-router-dom'
-import './style/userInterface.css'
-import { auth } from "../config/firebaseDB";
-import Profile from './Profile'
+import '../../style/userInterface.css'
+import { auth } from "../../../config/firebaseDB";
 
 function UserInterface() {
     const [{user}, dispatch] = useStateValue()
@@ -14,7 +13,7 @@ function UserInterface() {
 
     return (
         <div className="jumbotron">
-            <h1>hello</h1>
+            <h1>{user.email}</h1>
 
             <div className="details">
                 <h3>Here we will show account information</h3>
@@ -39,7 +38,6 @@ function UserInterface() {
                  <button onClick={deleteUser}>Delete Account</button>
                 </Link>
             </div>
-            {/* <Profile/> */}
         </div>
     )
 }
