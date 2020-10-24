@@ -1,15 +1,17 @@
 // this is the store
 export const initialState = {
+    show:[],
     orders:[],
+    preOrders:[],
     user: null,
-    isChecked: false
 }
 
 function reducer(state, action) {
     // this console log is important 
-    console.log(state)
+    console.log(action)
 
     switch(action.type){
+
         case 'SET_USER':
             // logic for adding item to basket
             return {
@@ -17,7 +19,12 @@ function reducer(state, action) {
             }
         case 'GET_ITEMS':
             return {
-                ...state, orders: action.orders
+                ...state, show: action.show
+            }
+        case 'ADD_PRODUCT':
+            return {
+                ...state,
+                orders:[...state.orders, action.pre_ordered_item]
             }
             
         default:

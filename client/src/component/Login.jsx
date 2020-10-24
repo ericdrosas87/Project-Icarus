@@ -61,10 +61,6 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
-            <label className="remember">
-              <input type="checkbox"/>
-              Remember Me
-            </label>
           
             <div className="buttonBox">
               <button

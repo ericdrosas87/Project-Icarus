@@ -11,10 +11,10 @@ export default {
     },
     // delete item by id
     deleteItem: function(id) {
-        return axios.delete('/api/items/' + id)
+        return axios.delete('/api/preorder/' + id)
     },
     // adds an item to database
     addItem: function(item) {
-        return axios.post('/api/items', item)
+        return axios.post('/api/preorder', item)
     }
 }

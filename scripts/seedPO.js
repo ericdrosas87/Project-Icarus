@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const db = require('../models')
 
@@ -13,8 +14,6 @@ const patreonSeed = [
     }
 ]
 
-db.Product.remove({})
-.then(() => db.Product.insertMany(patreonSeed)).then(data => console.log(data))
-
 db.PreOrder.remove({})
 .then(() => db.PreOrder.insertMany(patreonSeed)).then(data => console.log(data))
+

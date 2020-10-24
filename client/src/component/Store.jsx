@@ -2,31 +2,30 @@ import React, {useState, useEffect} from "react";
 import API from '../utils/API'
 import {useStateValue} from '../utils/StateProvider'
 import "./style/store.css";
-import Product from './store/Product'
+import Product from './Product'
 
 function Store() {
 
-  const [{orders}, dispatch] = useStateValue();
+  const [{show}, dispatch] = useStateValue();
 
   useEffect(() => {
     API.getAllItems()
     .then(res => dispatch({
       type: "GET_ITEMS",
-      orders: res.data[0].product[0]
+      show: res.data[0]
     }))
     .catch(err => console.log(err))
     return () => {
-      console.log('this is orders', orders)
+      
     }
   }, [])
 
-
-  console.log('this is orders>>>', orders)
+  console.log('this is show', show)
 
   return (
     <div className="store">
     
-      <Product name={orders.name} image={orders.image}/>
+      <Product id={show._id} name={show.name} image={show.image}/>
                        
     </div>
   );

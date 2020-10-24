@@ -1,3 +1,4 @@
 module.exports ={
-    Patreon: require('./fundInfo')
+    Product: require('./fundInfo'),
+    PreOrder: require('./preOrder')
 }
