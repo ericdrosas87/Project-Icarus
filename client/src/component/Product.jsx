@@ -7,23 +7,27 @@ function Product({id,name,image}) {
 
     const [{orders}, dispatch] = useStateValue()
 
+    console.log(orders)
+
     const preOrder = () => {
         // adding item to account
         dispatch({
             type:'ADD_PRODUCT',
             pre_ordered_item:{
-                id: id,
                 name:name,
                 image:image
             }
         })
-
-        API.addItem({orders})
-        console.log("this is preOrder button", orders)
-        console.log("added item to preOrder collection")
-
     }
 
+    if(orders){
+        API.addItem(orders)
+    }else
+    {
+        console.log("has not preordered yet")
+    }
+
+    
     return (
         <div className="product">
             <div className="img">
