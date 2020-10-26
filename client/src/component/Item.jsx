@@ -1,6 +1,5 @@
 import React from 'react'
 import './style/product.css'
-import APi from '../utils/API'
 import {useStateValue} from '../utils/StateProvider'
 import API from '../utils/API'
 

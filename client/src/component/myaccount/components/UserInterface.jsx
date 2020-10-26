@@ -39,16 +39,13 @@ function UserInterface() {
                  <h4>Connect New Product</h4>
                 </Link>
                 <br/>
-                <Link to='/map'>
-                 <h4>Add new Geo-fence</h4>
-                </Link>
-                <br/>
                 <Link to='/'>
                  <button onClick={deleteUser}>Delete Account</button>
                 </Link>
             </div>
 
-            <h2>You currently have {preOrders.length} Item/s</h2>
+    <h2>You currently have {preOrders.length} Device{preOrders.length > 1 || preOrders.length < 1 ? "s" : ""}</h2>
+    
             {preOrders ? (
                 <div className="display">
                     {preOrders.map(items => (

@@ -2,6 +2,7 @@ import React from 'react'
 import './style/product.css'
 import API from '../utils/API'
 import {useStateValue} from '../utils/StateProvider'
+import {Link} from 'react-router-dom'
 
 function Product({name,image}) {
     const [{user}, dispatch] = useStateValue()
@@ -12,7 +13,12 @@ function Product({name,image}) {
     
     const preOrder = (e) => {
         e.preventDefault()
-        API.addItem(order)
+        if(user){
+            API.addItem(order)
+            alert("Item Has been Added To Your Account")
+        }else{
+            alert("Please Sign In or Register To Add Item to Account")
+        }
        
     }
 
@@ -31,9 +37,12 @@ function Product({name,image}) {
                 </p>
                 
                 <div className="product__buttons">
-                    <button onClick={user ? (e) => preOrder(e) : alert("Please Sign In or Register to Add to Account.")}>Add To Account</button>
+                    <button onClick={(e) => preOrder(e)}>Add To Account</button>
                     <button>Donate</button>
-                    <button>Reach Us</button> 
+                    <Link to="/contact">
+                        <button className="product__buttons">Reach Us</button> 
+                    </Link>
+                    
                 </div>
                 
             </div>
