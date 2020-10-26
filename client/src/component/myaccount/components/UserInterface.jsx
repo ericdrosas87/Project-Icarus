@@ -20,7 +20,8 @@ function UserInterface() {
 
     const deleteUser = () => {
         auth.currentUser.delete()
-    }
+    } 
+
     
 
     console.log('this is the preOrders state', preOrders)
@@ -50,6 +51,12 @@ function UserInterface() {
             </div>
 
             <h2>You currently have {preOrders.length} pre-order/s</h2>
+            {preOrders ? 
+                <div className="display">
+                    <h1>Daedalus Sol</h1>
+                    <img src="https://www.usamade-ar15parts.com/images/LR%20ASSEM-NS-2.jpg" alt="placeholder Image"/>
+                </div>
+            : null}
                 
 
         </div>
