@@ -30,7 +30,19 @@ function reducer(state, action) {
             return {
                 ...state, preOrders: action.preOrders
             }
+        case "REMOVE_ITEM":
             
+            const newPreOrder = [...state.preOrders];
+
+            const index = state.preOrders.findIndex((item) => item._id === action.id)
+                if(index >= 0){
+                    newPreOrder.splice(index,1)
+                }else{
+                    console.warn(`Cannot remove product (id: ${action.id}) as it does not exists`)
+                }
+
+            return {...state, preOrders: newPreOrder}
+
         default:
             return state
     }

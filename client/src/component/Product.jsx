@@ -1,13 +1,15 @@
 import React from 'react'
 import './style/product.css'
 import API from '../utils/API'
+import {useStateValue} from '../utils/StateProvider'
 
 function Product({name,image}) {
-
+    const [{user}, dispatch] = useStateValue()
     const order = {
         name: name,
         image: image
     }
+    
     const preOrder = (e) => {
         e.preventDefault()
         API.addItem(order)
@@ -29,7 +31,7 @@ function Product({name,image}) {
                 </p>
                 
                 <div className="product__buttons">
-                    <button onClick={(e) => preOrder(e)}>Pre-Order</button>
+                    <button onClick={user ? (e) => preOrder(e) : alert("Please Sign In or Register to Add to Account.")}>Add To Account</button>
                     <button>Donate</button>
                     <button>Reach Us</button> 
                 </div>

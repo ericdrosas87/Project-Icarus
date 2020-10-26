@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import '../../style/userInterface.css'
 import { auth } from "../../../config/firebaseDB";
 import API from '../../../utils/API';
+import Item from '../../Item'
 
 function UserInterface() {
     const [{user}] = useStateValue()
@@ -21,6 +22,7 @@ function UserInterface() {
     const deleteUser = () => {
         auth.currentUser.delete()
     } 
+ 
 
     
 
@@ -37,10 +39,6 @@ function UserInterface() {
                  <h4>Connect New Product</h4>
                 </Link>
                 <br/>
-                <Link to='/404'>
-                 <h4>Delete existing product</h4>
-                </Link>
-                <br/>
                 <Link to='/map'>
                  <h4>Add new Geo-fence</h4>
                 </Link>
@@ -50,13 +48,24 @@ function UserInterface() {
                 </Link>
             </div>
 
-            <h2>You currently have {preOrders.length} pre-order/s</h2>
-            {preOrders ? 
+            <h2>You currently have {preOrders.length} Item/s</h2>
+            {preOrders ? (
                 <div className="display">
-                    <h1>Daedalus Sol</h1>
-                    <img src="https://www.usamade-ar15parts.com/images/LR%20ASSEM-NS-2.jpg" alt="placeholder Image"/>
+                    {preOrders.map(items => (
+                    <Item
+                    id={items._id}
+                    name={items.name}
+                    image={items.image}
+                    />
+                    ))}
                 </div>
-            : null}
+                
+                // <div className="display">
+                //     <h1>Daedalus Sol</h1>
+                //     <img src="https://www.usamade-ar15parts.com/images/LR%20ASSEM-NS-2.jpg" alt="placeholder Image"/>
+                //     <button onClick={removeItem}>Remove Item</button>
+                // </div>
+            ): null}
                 
 
         </div>
