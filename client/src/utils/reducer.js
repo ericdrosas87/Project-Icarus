@@ -26,6 +26,10 @@ function reducer(state, action) {
                 ...state,
                 orders:[...state.orders, action.pre_ordered_item]
             }
+        case "GET_PREORDER_ITEMS":
+            return {
+                ...state, preOrders: action.preOrders
+            }
             
         default:
             return state

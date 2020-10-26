@@ -1,33 +1,20 @@
 import React from 'react'
 import './style/product.css'
-import {useStateValue} from '../utils/StateProvider'
 import API from '../utils/API'
 
-function Product({id,name,image}) {
+function Product({name,image}) {
 
-    const [{orders}, dispatch] = useStateValue()
-
-    console.log(orders)
-
-    const preOrder = () => {
-        // adding item to account
-        dispatch({
-            type:'ADD_PRODUCT',
-            pre_ordered_item:{
-                name:name,
-                image:image
-            }
-        })
+    const order = {
+        name: name,
+        image: image
+    }
+    const preOrder = (e) => {
+        e.preventDefault()
+        API.addItem(order)
+       
     }
 
-    if(orders){
-        API.addItem(orders)
-    }else
-    {
-        console.log("has not preordered yet")
-    }
 
-    
     return (
         <div className="product">
             <div className="img">
@@ -42,7 +29,7 @@ function Product({id,name,image}) {
                 </p>
                 
                 <div className="product__buttons">
-                    <button onClick={preOrder}>Pre-Order</button>
+                    <button onClick={(e) => preOrder(e)}>Pre-Order</button>
                     <button>Donate</button>
                     <button>Reach Us</button> 
                 </div>

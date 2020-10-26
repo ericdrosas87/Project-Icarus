@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useStateValue} from '../../../utils/StateProvider'
 import {Link} from 'react-router-dom'
 import '../../style/userInterface.css'
@@ -6,27 +6,28 @@ import { auth } from "../../../config/firebaseDB";
 import API from '../../../utils/API';
 
 function UserInterface() {
-    const [{user}, dispatch] = useStateValue()
-    const [{orders}, change] = useStateValue()
+    const [{user}] = useStateValue()
+    const [{preOrders}, dispatch] = useStateValue()
+
+    useEffect(() => {
+        API.getPreOrderItems()
+        .then(res => dispatch({
+            type: "GET_PREORDER_ITEMS",
+            preOrders: res.data
+        })).catch(err => console.log(err))
+    }, [])
+
 
     const deleteUser = () => {
         auth.currentUser.delete()
     }
+    
 
-    if(orders) {
-        API.addItem(orders[0])
-        console.log("order added to preorder", orders[0])
-
-    }else{
-
-        console.log('No Preordered Items yet')
-    }
-
-    console.log("orders in myaccount", orders)
+    console.log('this is the preOrders state', preOrders)
 
     return (
         <div className="jumbotron Main">
-            <h1>{user ? user.email : "Welcome Back"}</h1>
+            <h1>{user ? user.email : "Please Sign In"}</h1>
 
             <div className="details">
                 <h3>Here we will show account information</h3>
@@ -48,9 +49,8 @@ function UserInterface() {
                 </Link>
             </div>
 
-            <div className="preorder">
-               
-            </div>
+            <h2>You currently have {preOrders.length} pre-order/s</h2>
+                
 
         </div>
     )

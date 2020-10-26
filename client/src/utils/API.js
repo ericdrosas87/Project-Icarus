@@ -16,5 +16,9 @@ export default {
     // adds an item to database
     addItem: function(item) {
         return axios.post('/api/preorder', item)
+    },
+    // fetching items in preOrder collection only
+    getPreOrderItems: function(){
+        return axios.get('/api/preorder')
     }
 }
