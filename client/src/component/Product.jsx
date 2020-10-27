@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style/product.css'
 import API from '../utils/API'
 import {useStateValue} from '../utils/StateProvider'
 import {Link} from 'react-router-dom'
+import {Button, Modal} from 'react-bootstrap'
 
 function Product({name,image}) {
     const [{user}, dispatch] = useStateValue()
+
+    const [modal, setModal] = useState(false);
+
+    const handleClose = () => setModal(false);
+
+
     const order = {
         name: name,
         image: image
@@ -17,7 +24,7 @@ function Product({name,image}) {
             API.addItem(order)
             alert("Item Has been Added To Your Account")
         }else{
-            alert("Please Sign In or Register To Add Item to Account")
+            setModal(true)
         }
        
     }
@@ -46,6 +53,22 @@ function Product({name,image}) {
                 </div>
                 
             </div>
+
+
+
+            <>
+                <Modal show={modal} onHide={handleClose}>
+                    <Modal.Header>
+                        <Modal.Title>User Required</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Please Sign In or Register to Contine</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
 
         </div> 
         

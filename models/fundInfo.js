@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const product = new Schema ({
     name: String,
-    image: String
+    image: Array
 })
 
 const Product = mongoose.model('Product', product);

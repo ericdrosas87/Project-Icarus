@@ -7,7 +7,7 @@ mongoose.connect(
     'mongodb://localhost/projectIcharus'
 )
 
-const patreonSeed = [
+const preOrderSeed = [
     {
         name: 'Daedalus Sol',
         image: "https://www.usamade-ar15parts.com/images/LR%20ASSEM-NS-2.jpg"
@@ -15,5 +15,5 @@ const patreonSeed = [
 ]
 
 db.PreOrder.remove({})
-.then(() => db.PreOrder.insertMany(patreonSeed)).then(data => console.log(data))
+.then(() => db.PreOrder.insertMany(preOrderSeed)).then(data => console.log(data))
 
