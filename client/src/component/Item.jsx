@@ -26,6 +26,7 @@ function Item({name,image, id}) {
                 <h2>{name}</h2>
                 <div className="product__buttons">
                     <button onClick={removeItem}>Remove</button>
+                    
                     <button>Modify Geo-Fence</button>
                 </div>
                 

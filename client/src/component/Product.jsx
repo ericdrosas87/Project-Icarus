@@ -10,7 +10,10 @@ function Product({name,image}) {
 
     const [modal, setModal] = useState(false);
 
+    const [modalTwo, setModalTwo] = useState(false)
+
     const handleClose = () => setModal(false);
+    const handleCloseModalTwo = () => setModalTwo(false)
 
 
     const order = {
@@ -22,7 +25,7 @@ function Product({name,image}) {
         e.preventDefault()
         if(user){
             API.addItem(order)
-            alert("Item Has been Added To Your Account")
+            setModalTwo(true)
         }else{
             setModal(true)
         }
@@ -45,7 +48,6 @@ function Product({name,image}) {
                 
                 <div className="product__buttons">
                     <button onClick={(e) => preOrder(e)}>Add To Account</button>
-                    <button>Donate</button>
                     <Link to="/contact">
                         <button className="product__buttons">Reach Us</button> 
                     </Link>
@@ -64,6 +66,20 @@ function Product({name,image}) {
                     <Modal.Body>Please Sign In or Register to Contine</Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
+
+            <>
+                <Modal show={modalTwo} onHide={handleCloseModalTwo}>
+                    <Modal.Header>
+                        <Modal.Title>Product Acquired</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Product Has been Added To Your Account!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseModalTwo}>
                             Close
                         </Button>
                     </Modal.Footer>
