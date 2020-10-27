@@ -1,12 +1,26 @@
 import React from "react";
-//import { useLoadScript, withScriptjs, withGoogleMap, Marker, InfoWindow, GoogleMap, Polygon } from "react-google-maps";
-import { GoogleMap, DrawingManager, useLoadScript, Marker, InfoWindow, Polygon } from "@react-google-maps/api";
-import usePlacesAutocomplete, { getGeocode, getLatLng, } from "use-places-autocomplete";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption, } from "@reach/combobox";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+  Polygon,
+  Circle,
+} from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+} from "@reach/combobox";
 import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
 import mapStyles from "./mapstyles.jsx";
-
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "80vh",
@@ -17,43 +31,101 @@ const options = {
   disableDefaultUI: true,
   zoomControl: false,
 };
+const circle_options = {
+  strokeColor: "#FF0000",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#FF0000",
+  fillOpacity: 0.35,
+  clickable: true,
+  draggable: true,
+  editable: true,
+  visible: true,
+  radius: 10,
+  zIndex: 1,
+};
+
 const center = {
   lat: 34.048927,
   lng: -111.093735,
 };
-
-//Pre-Blackout Coordinates
-const coords = [
-  { lat: 32.214176, lng: -110.926567 },
-  { lat: 32.207069, lng: -110.926557 },
-  { lat: 32.207187, lng: -110.924571 },
-  { lat: 32.207227, lng: -110.922353 },
-  { lat: 32.207200, lng: -110.920344 },
-  { lat: 32.207187, lng: -110.918106 },
-  { lat: 32.207177, lng: -110.916305 },
-  { lat: 32.207182, lng: -110.913555 },
-  { lat: 32.207209, lng: -110.912443 },
-  { lat: 32.207486, lng: -110.912448 },
-  { lat: 32.207590, lng: -110.912234 },
-  { lat: 32.207659, lng: -110.912078 },
-  { lat: 32.208217, lng: -110.912180 },
-  { lat: 32.208870, lng: -110.911746 },
-  { lat: 32.209161, lng: -110.911515 },
-  { lat: 32.209252, lng: -110.911348 },
-  { lat: 32.209379, lng: -110.911144 },
-  { lat: 32.209270, lng: -110.910865 },
-  { lat: 32.209247, lng: -110.909829 },
-  { lat: 32.216051, lng: -110.909743 },
-  { lat: 32.221297, lng: -110.909789 },
-  { lat: 32.221424, lng: -110.917988 },
-  { lat: 32.214312, lng: -110.918086 },
-  { lat: 32.214181, lng: -110.922248 },
-  { lat: 32.214176, lng: -110.926567 }];
-
-const blackout = coords.map( ll => {
-  return { lat: ll.lng, lng: ll.lat }
-});
-
+const google = window.google;
+//Polygon Coordinates
+const zoocoords = [
+  // Randolph Park/Zoo
+  { lat: 32.21389, lng: -110.92643 },
+  { lat: 32.2071, lng: -110.926473 },
+  { lat: 32.207209, lng: -110.909801 },
+  { lat: 32.221438, lng: -110.909738 },
+  { lat: 32.221447, lng: -110.917985 },
+  { lat: 32.21424, lng: -110.918156 },
+  { lat: 32.21389, lng: -110.92643 },
+];
+const uofacoords = [
+  // University of Arizona Campus
+  { lat: 32.23855, lng: -110.956742 },
+  { lat: 32.235873, lng: -110.956837 },
+  { lat: 32.235818, lng: -110.959403 },
+  { lat: 32.227814, lng: -110.959419 },
+  { lat: 32.227877, lng: -110.944027 },
+  { lat: 32.243786, lng: -110.944224 },
+  { lat: 32.243682, lng: -110.949763 },
+  { lat: 32.238659, lng: -110.949795 },
+  { lat: 32.23855, lng: -110.956742 },
+];
+const tiacoords = [
+  // Tucson International Airport
+  { lat: 32.133739, lng: -110.961207 },
+  { lat: 32.110878, lng: -110.960164 },
+  { lat: 32.110078, lng: -110.941738 },
+  { lat: 32.097627, lng: -110.926684 },
+  { lat: 32.104025, lng: -110.916014 },
+  { lat: 32.115548, lng: -110.927957 },
+  { lat: 32.12111, lng: -110.934467 },
+  { lat: 32.12558, lng: -110.939296 },
+  { lat: 32.133962, lng: -110.93905 },
+  { lat: 32.133739, lng: -110.961207 },
+];
+const udallcoords = [
+  // Udall Park
+  { lat: 32.250628, lng: -110.840688 },
+  { lat: 32.242806, lng: -110.840586 },
+  { lat: 32.242851, lng: -110.832453 },
+  { lat: 32.250614, lng: -110.832388 },
+  { lat: 32.250628, lng: -110.840688 },
+];
+const pimawcoords = [
+  // PCC West Campus
+  { lat: 32.232647, lng: -111.02023 },
+  { lat: 32.225041, lng: -111.020181 },
+  { lat: 32.225059, lng: -111.011749 },
+  { lat: 32.232765, lng: -111.01185 },
+  { lat: 32.232647, lng: -111.02023 },
+];
+const himmelcoords = [
+  // Himmel Park
+  { lat: 32.234897, lng: -110.935242 },
+  { lat: 32.232297, lng: -110.935274 },
+  { lat: 32.232361, lng: -110.931141 },
+  { lat: 32.234934, lng: -110.931168 },
+  { lat: 32.234897, lng: -110.935242 },
+];
+const schscoords = [
+  // Salpointe Catholic High School
+  { lat: 32.257505, lng: -110.952381 },
+  { lat: 32.254021, lng: -110.952467 },
+  { lat: 32.254067, lng: -110.948406 },
+  { lat: 32.257514, lng: -110.948213 },
+  { lat: 32.257505, lng: -110.952381 },
+];
+const chscoords = [
+  // Catalina High School
+  { lat: 32.246921, lng: -110.918242 },
+  { lat: 32.243409, lng: -110.918231 },
+  { lat: 32.24345, lng: -110.914063 },
+  { lat: 32.246957, lng: -110.914095 },
+  { lat: 32.246921, lng: -110.918242 },
+];
 export default function App() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -61,7 +133,6 @@ export default function App() {
   });
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
-
   const onMapClick = React.useCallback((e) => {
     setMarkers((current) => [
       ...current,
@@ -72,29 +143,27 @@ export default function App() {
       },
     ]);
   }, []);
-
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
-
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
-
+  const onLoad = (circle) => {
+    console.log("Circle onLoad circle: ", circle);
+  };
+  const onUnmount = (circle) => {
+    console.log("Circle onUnmount circle: ", circle);
+  };
   if (loadError) return "Error";
   if (!isLoaded) return "Loading...";
-
   return (
     <div>
-      <h1>
-        Icarus{" "}
-      </h1>
-
+      <h1>Icarus </h1>
       <Locate panTo={panTo} />
       <Search panTo={panTo} />
-
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}
@@ -112,26 +181,96 @@ export default function App() {
               setSelected(marker);
             }}
             icon={{
-              url: `./maplock.png`,
+              url: `/maplock.png`,
               origin: new window.google.maps.Point(30, 30),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
             }}
           />
         ))}
-
-        <Polygon
-            path={blackout}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }} 
+        <Circle
+          // required
+          center={center}
+          // required
+          options={circle_options}
         />
-
+        <Polygon
+          path={zoocoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={uofacoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={udallcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={pimawcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={himmelcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={schscoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
+        <Polygon
+          path={chscoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         {selected ? (
           <InfoWindow
             position={{ lat: selected.lat, lng: selected.lng }}
@@ -140,10 +279,7 @@ export default function App() {
             }}
           >
             <div>
-              <h2>
-                {" "}
-                Alert
-              </h2>
+              <h2> Alert</h2>
               <p>Location marked {formatRelative(selected.time, new Date())}</p>
             </div>
           </InfoWindow>
@@ -152,7 +288,6 @@ export default function App() {
     </div>
   );
 }
-
 function Locate({ panTo }) {
   return (
     <button
@@ -173,7 +308,6 @@ function Locate({ panTo }) {
     </button>
   );
 }
-
 function Search({ panTo }) {
   const {
     ready,
@@ -187,17 +321,12 @@ function Search({ panTo }) {
       radius: 100 * 1000,
     },
   });
-
-  // https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest
-
   const handleInput = (e) => {
     setValue(e.target.value);
   };
-
   const handleSelect = async (address) => {
     setValue(address, false);
     clearSuggestions();
-
     try {
       const results = await getGeocode({ address });
       const { lat, lng } = await getLatLng(results[0]);
@@ -206,7 +335,6 @@ function Search({ panTo }) {
       console.log("😱 Error: ", error);
     }
   };
-
   return (
     <div className="search">
       <Combobox onSelect={handleSelect}>

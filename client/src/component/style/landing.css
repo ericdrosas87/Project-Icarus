@@ -18,6 +18,31 @@
   clip-path: circle(180vh at 50% center);
 }
 
-.slideshow {
-  width: 100px;
+.bg {
+}
+.sign {
+  font-size: 12em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: -100px;
+}
+
+.slide {
+  margin-top: -500px;
+}
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__fadeIn {
+  --animate-duration: 10s;
+}
+
+@media (max-width: 700px) {
+  .sign {
+    font-size: 7em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+  }
+  .slide {
+    margin-top: -300px;
+    max-width: 90vw;
+  }
 }
