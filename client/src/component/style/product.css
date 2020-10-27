@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+}
+
+.img {
+    position: relative;
+    
+}
+
+.product__image {
+    width: 100%;
+    height: 100%;
+}
+
+.product__info {
+    margin-left: 10%;
+    color: black;
+
+}
+
+.product__buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.product__buttons > button {
+    margin-left: 25px;
+    padding: 10px;
+    background-color: white;
+}

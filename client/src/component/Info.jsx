@@ -39,24 +39,6 @@ function Info() {
           mattis ullamcorper velit sed.
         </p>
       </div>
-      <div className="block info4 animate__animated animate__slideInLeft">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui ut
-          ornare lectus sit amet est placerat. Iaculis urna id volutpat lacus
-          laoreet non. Ultrices gravida dictum fusce ut.
-        </p>
-        <img src="./images/placeHolder3.JPG" alt="image1" />
-      </div>
-      <div className="block info5 animate__animated animate__slideInUp">
-        <img src="./images/placeHolder4.JPG" alt="image1" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum
-          leo vel orci porta. Turpis massa sed elementum tempus egestas sed.
-          Nulla malesuada pellentesque elit eget gravida.
-        </p>
-      </div>
     </div>
   );
 }

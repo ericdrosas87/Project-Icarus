@@ -11,7 +11,6 @@ import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
 import UserInterface from './component/myaccount/components/UserInterface'
-import Profile from './component/myaccount/components/Profile'
 import NotFound from './component/NotFound'
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
@@ -63,9 +62,6 @@ function App() {
             </Route>
             <Route path="/myaccount">
               <UserInterface/>
-            </Route>
-            <Route exact path={user ? '/edit' : '/404'}>
-              <Profile/>
             </Route>
             <Route path='/404'>
               <NotFound/>
