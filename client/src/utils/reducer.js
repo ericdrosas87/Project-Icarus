@@ -14,6 +14,10 @@ function reducer(state, action) {
             return {
                 ...state, user: action.user
             }
+        case 'GET_ITEMS':
+            return {
+                ...state, orders: action.orders
+            }
             
         default:
             return state

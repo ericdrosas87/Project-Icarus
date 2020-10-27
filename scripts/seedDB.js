@@ -12,9 +12,10 @@ const patreonSeed = [
         address: "1234 N testyroad",
         email: "testnumberTwo@Email.com",
         phone: 885-113-4456,
-        product: [{
-            name: "Pistol grip"
-        }]   }
+        product: {
+            name: 'Daedalus Sol',
+            image: './itemImgs/img1.png'
+        }}
 ]
 
 db.Patreon.remove({})

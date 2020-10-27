@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./style/contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Contact() {
-  let ref = useRef();
+
+  
   return (
     <div className="contact animate__animated animate__zoomIn">
       <h1 className="logo animate__animated animate__heartBeat">
@@ -15,18 +16,15 @@ function Contact() {
           <h3>Icharus</h3>
           <ul>
             <li>
-              <FontAwesomeIcon icon="building" className="contactIcon" />
+              <FontAwesomeIcon icon="building" />
               Street Address
             </li>
             <li>
-              <FontAwesomeIcon icon="phone-alt" className="contactIcon" />
+              <FontAwesomeIcon icon="phone-alt" />
               (123)456.7890
             </li>
             <li>
-              <FontAwesomeIcon
-                icon="envelope-open-text"
-                className="contactIcon"
-              />
+              <FontAwesomeIcon icon="envelope-open-text" />
               project@icharus.com
             </li>
           </ul>
@@ -35,8 +33,8 @@ function Contact() {
           <h3>Email Us</h3>
           <form id="contact-form">
             <p>
-              <label htmlFor="name">Name:</label>
-              <input type="text" name="name" id="name" ref={ref}></input>
+              <label>Name:</label>
+              <input type="text" name="name" id="name"></input>
             </p>
             <p>
               <label>Company:</label>
