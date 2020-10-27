@@ -1,7 +1,23 @@
 import React from "react";
-import { GoogleMap, useLoadScript, Marker, InfoWindow, Polygon, Circle } from "@react-google-maps/api";
-import usePlacesAutocomplete, { getGeocode, getLatLng, } from "use-places-autocomplete";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption, } from "@reach/combobox";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+  Polygon,
+  Circle,
+} from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+} from "@reach/combobox";
 import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
 import mapStyles from "./mapstyles.jsx";
@@ -15,25 +31,39 @@ const options = {
   disableDefaultUI: true,
   zoomControl: false,
 };
+const circle_options = {
+  strokeColor: "#FF0000",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#FF0000",
+  fillOpacity: 0.35,
+  clickable: true,
+  draggable: true,
+  editable: true,
+  visible: true,
+  radius: 10,
+  zIndex: 1,
+};
+
 const center = {
   lat: 34.048927,
   lng: -111.093735,
 };
-
+const google = window.google;
 //Polygon Coordinates
 const zoocoords = [
   // Randolph Park/Zoo
-  { lat: 32.213890, lng: -110.926430 },
-  { lat: 32.207100, lng: -110.926473 },
+  { lat: 32.21389, lng: -110.92643 },
+  { lat: 32.2071, lng: -110.926473 },
   { lat: 32.207209, lng: -110.909801 },
   { lat: 32.221438, lng: -110.909738 },
   { lat: 32.221447, lng: -110.917985 },
-  { lat: 32.214240, lng: -110.918156 },
-  { lat: 32.213890, lng: -110.926430 },
+  { lat: 32.21424, lng: -110.918156 },
+  { lat: 32.21389, lng: -110.92643 },
 ];
 const uofacoords = [
   // University of Arizona Campus
-  { lat: 32.238550, lng: -110.956742 },
+  { lat: 32.23855, lng: -110.956742 },
   { lat: 32.235873, lng: -110.956837 },
   { lat: 32.235818, lng: -110.959403 },
   { lat: 32.227814, lng: -110.959419 },
@@ -41,7 +71,7 @@ const uofacoords = [
   { lat: 32.243786, lng: -110.944224 },
   { lat: 32.243682, lng: -110.949763 },
   { lat: 32.238659, lng: -110.949795 },
-  { lat: 32.238550, lng: -110.956742 },
+  { lat: 32.23855, lng: -110.956742 },
 ];
 const tiacoords = [
   // Tucson International Airport
@@ -51,9 +81,9 @@ const tiacoords = [
   { lat: 32.097627, lng: -110.926684 },
   { lat: 32.104025, lng: -110.916014 },
   { lat: 32.115548, lng: -110.927957 },
-  { lat: 32.121110, lng: -110.934467 },
-  { lat: 32.125580, lng: -110.939296 },
-  { lat: 32.133962, lng: -110.939050 },
+  { lat: 32.12111, lng: -110.934467 },
+  { lat: 32.12558, lng: -110.939296 },
+  { lat: 32.133962, lng: -110.93905 },
   { lat: 32.133739, lng: -110.961207 },
 ];
 const udallcoords = [
@@ -66,11 +96,11 @@ const udallcoords = [
 ];
 const pimawcoords = [
   // PCC West Campus
-  { lat: 32.232647, lng: -111.020230 },
+  { lat: 32.232647, lng: -111.02023 },
   { lat: 32.225041, lng: -111.020181 },
   { lat: 32.225059, lng: -111.011749 },
-  { lat: 32.232765, lng: -111.011850 },
-  { lat: 32.232647, lng: -111.020230 },
+  { lat: 32.232765, lng: -111.01185 },
+  { lat: 32.232647, lng: -111.02023 },
 ];
 const himmelcoords = [
   // Himmel Park
@@ -92,7 +122,7 @@ const chscoords = [
   // Catalina High School
   { lat: 32.246921, lng: -110.918242 },
   { lat: 32.243409, lng: -110.918231 },
-  { lat: 32.243450, lng: -110.914063 },
+  { lat: 32.24345, lng: -110.914063 },
   { lat: 32.246957, lng: -110.914095 },
   { lat: 32.246921, lng: -110.918242 },
 ];
@@ -121,13 +151,17 @@ export default function App() {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
+  const onLoad = (circle) => {
+    console.log("Circle onLoad circle: ", circle);
+  };
+  const onUnmount = (circle) => {
+    console.log("Circle onUnmount circle: ", circle);
+  };
   if (loadError) return "Error";
   if (!isLoaded) return "Loading...";
   return (
     <div>
-      <h1>
-        Icarus{" "}
-      </h1>
+      <h1>Icarus </h1>
       <Locate panTo={panTo} />
       <Search panTo={panTo} />
       <GoogleMap
@@ -139,101 +173,89 @@ export default function App() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
+        <Circle
+          // required
+          center={center}
+          // required
+          options={circle_options}
+        />
         <Polygon
-            path={zoocoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }} 
-          />
+          path={zoocoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={uofacoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }} 
-          />
+          path={uofacoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={udallcoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }} 
-          />
+          path={udallcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={pimawcoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }}
-          />
+          path={pimawcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={himmelcoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }}
-          />
+          path={himmelcoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={schscoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }}
-          />
+          path={schscoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         <Polygon
-            path={chscoords}
-            //key={1}
-            options={{
-                fillColor: "#000",
-                fillOpacity: 0.4,
-                strokeColor: "#000",
-                strokeOpacity: 1,
-                strokeWeight: 1
-            }}
-          />
-
-          <Circle
-            center={center}            
-            options={{
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.35,
-              clickable: true,
-              draggable: true,
-              editable: true,
-              visible: true,
-              radius: 15000,
-              zIndex: 1
-            }}
-          /> 
-
+          path={chscoords}
+          //key={1}
+          options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+          }}
+        />
         {selected ? (
           <InfoWindow
             position={{ lat: selected.lat, lng: selected.lng }}
@@ -242,10 +264,7 @@ export default function App() {
             }}
           >
             <div>
-              <h2>
-                {" "}
-                Alert
-              </h2>
+              <h2> Alert</h2>
               <p>Location marked {formatRelative(selected.time, new Date())}</p>
             </div>
           </InfoWindow>

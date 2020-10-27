@@ -4,19 +4,18 @@ import "./App.css";
 import Login from "./component/Login";
 import Contact from "./component/Contact";
 import Map from "./component/Map";
-import NavBar from "./component/NavBar"
+import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import Wrapper from "./component/Wrapper";
 import Landing from "./component/Landing";
 import Info from "./component/Info";
 import Store from "./component/Store";
 import UserInterface from './component/myaccount/components/UserInterface'
-import Profile from './component/myaccount/components/Profile'
 import NotFound from './component/NotFound'
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
-function App() {
+export function App() {
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -62,10 +61,7 @@ function App() {
               <Store />
             </Route>
             <Route path="/myaccount">
-              <UserInterface/>
-            </Route>
-            <Route exact path={user ? '/edit' : '/404'}>
-              <Profile/>
+              <UserInterface />
             </Route>
             <Route path='/404'>
               <NotFound/>
