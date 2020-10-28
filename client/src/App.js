@@ -38,7 +38,7 @@ export function App() {
     };
   }, []);
 
-  console.log("user is >>>", user);
+  // console.log("user is >>>", user);
   return (
     <div className="app">
       <Router>

@@ -46,8 +46,6 @@ function UserInterface() {
                 </Link>
                 <br/>
                 
-                <button onClick={handleOpen}>Delete Account</button>
-                
             </div>
 
             <h2>You currently have {preOrders.length} Device{preOrders.length > 1 || preOrders.length < 1 ? "s" : ""}</h2>
@@ -65,6 +63,7 @@ function UserInterface() {
                 
             ): null}
 
+            <button className="delete__button" onClick={handleOpen}>Delete Account</button>
 
             <>
                 <Modal show={modal} onHide={handleClose}>

@@ -1,5 +1,13 @@
-.product__image {
-    width: 50%;
-    
+.item__image {
+    width: 25%;
+}
+
+.delete__button {
+    margin-top: 30px;
+}
+
+.item__buttons {
+    align-items: center;
+    justify-items: auto;
 }
 

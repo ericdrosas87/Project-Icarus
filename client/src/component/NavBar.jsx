@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [{ user }] = useStateValue(); 
 
-  console.log("current user >>", user);
+  // console.log("current user >>", user);
 
   // this button function once clicked checks if there is a user in useStateValue if there is it will sign them out.
   const login = () => {

@@ -18,13 +18,13 @@ function Item({name,image, id}) {
     }
 
     return (
-        <div className="product">
+        <div className="item">
             
-            <img className="product__image" src={image} alt="Daedelus"/>
+            <img className="item__image" src={image} alt="Daedelus"/>
             
-            <div className="product__info">
+            <div className="item__info">
                 <h2>{name}</h2>
-                <div className="product__buttons">
+                <div className="item__buttons">
                     <button onClick={removeItem}>Remove</button>
 
                     <button>Modify Geo-Fence</button>
