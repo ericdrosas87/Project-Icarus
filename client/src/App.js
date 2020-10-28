@@ -7,11 +7,12 @@ import Map from "./component/Map";
 import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import Wrapper from "./component/Wrapper";
-import Landing from "./component/Landing";
+/* import Landing from "./component/Landing"; */
+import Landing2 from "./component/Landing2";
 import Info from "./component/Info";
 import Store from "./component/Store";
-import UserInterface from './component/myaccount/components/UserInterface'
-import NotFound from './component/NotFound'
+import UserInterface from "./component/myaccount/components/UserInterface";
+import NotFound from "./component/NotFound";
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
@@ -63,11 +64,11 @@ export function App() {
             <Route path="/myaccount">
               <UserInterface />
             </Route>
-            <Route path='/404'>
-              <NotFound/>
+            <Route path="/404">
+              <NotFound />
             </Route>
             <Route path="/">
-              <Landing />
+              <Landing2 />
             </Route>
           </Switch>
           <Footer />

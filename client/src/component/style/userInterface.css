@@ -2,19 +2,28 @@
     width: 90%;
 }
 
-.details > a {
-    margin-bottom: 50px;
+.jumbotron {
+  max-width: 90%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-main{
-    
-    width: 90%;
-    display: flex;
+.jumbotron .details {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.display {
-    display: flex;
-
-    
-    
+.product {
+  max-width: 500px;
 }
+
+@media (max-width: 900px) {
+  .product {
+    max-width: 200px;
+  }
+}
+

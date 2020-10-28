@@ -1,7 +1,7 @@
 import React from "react";
 import "./style/landing.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import Slideshow from "./Slideshow";
 
 function Landing() {
@@ -15,11 +15,9 @@ function Landing() {
         <Slideshow />
       </div>
 
-
       <Link to='/login'>
         <button> Sign In</button>
       </Link>
-
     </div>
   );
 }

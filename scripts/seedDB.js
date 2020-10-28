@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 const db = require('../models')
-
-
 mongoose.connect(
-    process.env.MONGODB_URI ||
-    'mongodb://localhost/projectIcharus'
-)
+  process.env.MONGODB_URI || "mongodb://localhost/projectIcharus"
+);
 
 const productSeed = [
     {
@@ -26,5 +23,5 @@ const productSeed = [
 ]
 
 db.Product.remove({})
-.then(() => db.Product.insertMany(productSeed)).then(data => console.log(data))
-
+  .then(() => db.Product.insertMany(productSeed))
+  .then((data) => console.log(data));

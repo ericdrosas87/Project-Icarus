@@ -14,27 +14,19 @@
 }
 
 .map {
-  height: 90vh;
-  margin: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 2fr 1fr;
-  grid-column-gap: 15px;
-  grid-row-gap: 10px;
-  grid-template-areas:
-    "logo map map"
-    ". map map"
-    ". . legend";
+  border: black solid 2px;
+  margin: 10px;
 }
 
-.mapLogo {
-  border: solid black 2px;
-  grid-area: logo;
+.locate {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgb(123, 154, 166, 0.9);
 }
-.legend {
-  border: 2px solid black;
-  background: red;
-  grid-area: legend;
-  width: auto;
-  height: 100px;
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgb(123, 154, 166);
 }
