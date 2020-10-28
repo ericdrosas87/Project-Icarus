@@ -9,9 +9,8 @@ function Landing2() {
         <h3>Project Icharus</h3>
         <h4>Mission Statement:</h4>
         <h5>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus at
-          ultrices mi tempus imperdiet nulla malesuada pellentesque elit.
+          Our goal at Icarus is to create a safer future for students, families,
+          and patrons in communities around the nation.
         </h5>
       </div>
       <section className="landing2">
@@ -20,14 +19,13 @@ function Landing2() {
         </div>
         <div className="info1">
           <p>
-            Ac tortor vitae purus faucibus. Enim nulla aliquet porttitor lacus
-            luctus accumsan tortor posuere ac. Ut porttitor leo a diam
-            sollicitudin tempor id eu nisl. Eu ultrices vitae auctor eu augue
-            ut. Sed enim ut sem viverra aliquet eget. Vel risus commodo viverra
-            maecenas accumsan lacus vel facilisis. Nibh praesent tristique magna
-            sit amet purus gravida. Nibh sit amet commodo nulla. Vel quam
-            elementum pulvinar etiam non quam lacus suspendisse. Ultricies leo
-            integer malesuada nunc vel.
+            At Icarus we are using geo-fencing technologies to develop a passive
+            safety for the AR-15 platform. This technology allows our company
+            and the user to “black-out” areas on a map such as: schools, movie
+            theaters, parks, and their own home if they desire. Upon
+            implementation of this safety, our system will recognize the
+            location of the firearm, and if the user is not located in a “black
+            out” zone, the safety can be disabled.
           </p>
         </div>
         <div className="icon2">

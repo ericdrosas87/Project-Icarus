@@ -8,8 +8,12 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 30px;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   grid-template-areas:
@@ -29,14 +33,16 @@
 
 .product__info {
   margin-left: 10%;
+  margin-top: 20px;
   color: rgba(0, 0, 0, 0.8);
   grid-area: info;
+  flex-grow: 1;
 }
 
 .product__buttons {
   display: flex;
   flex-direction: row;
-
+  margin-left: 20px;
   grid-area: button;
 }
 
@@ -65,7 +71,9 @@
   .product {
     height: 40%;
     width: 50%;
-    background: black;
+    background: #a69b8f;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
     border-radius: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
