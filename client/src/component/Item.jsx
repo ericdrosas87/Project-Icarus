@@ -1,5 +1,5 @@
 import React from 'react'
-import './style/product.css'
+import './style/item.css'
 import {useStateValue} from '../utils/StateProvider'
 import API from '../utils/API'
 
@@ -18,14 +18,15 @@ function Item({name,image, id}) {
     }
 
     return (
-        <div className="product">
-            <div className="img">
-                <img className="product__image" src={image} alt="Daedelus"/>
-            </div>
-            <div className="product__info">
+        <div className="item">
+            
+            <img className="item__image" src={image} alt="Daedelus"/>
+            
+            <div className="item__info">
                 <h2>{name}</h2>
-                <div className="product__buttons">
+                <div className="item__buttons">
                     <button onClick={removeItem}>Remove</button>
+
                     <button>Modify Geo-Fence</button>
                 </div>
                 
