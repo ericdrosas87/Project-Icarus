@@ -14,8 +14,7 @@ function Product({name,image}) {
 
     const handleClose = () => setModal(false);
     const handleCloseModalTwo = () => setModalTwo(false)
-
-
+    
     const order = {
         name: name,
         image: image
@@ -31,7 +30,6 @@ function Product({name,image}) {
         }
        
     }
-
 
     return (
         <div className="product">

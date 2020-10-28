@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import API from '../utils/API'
 import {useStateValue} from '../utils/StateProvider'
 import "./style/store.css";
@@ -20,13 +20,14 @@ function Store() {
     }
   }, [])
 
+
   console.log('this is show', show)
 
   return (
     <div className="store">
     
-      <Product id={show._id} name={show.name} image={show.image}/>
-                       
+      <Product image={show.image}/>
+        
     </div>
   );
   /*INITIAL SETUP*/

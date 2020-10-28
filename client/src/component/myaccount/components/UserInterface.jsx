@@ -53,7 +53,7 @@ function UserInterface() {
             <h2>You currently have {preOrders.length} Device{preOrders.length > 1 || preOrders.length < 1 ? "s" : ""}</h2>
     
             {preOrders ? (
-                <div className="display">
+                <div className="display" key={preOrders._id}>
                     {preOrders.map(items => (
                     <Item
                     id={items._id}

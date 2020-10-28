@@ -57,7 +57,7 @@ export function App() {
             <Route path="/contact">
               <Contact />
             </Route>
-            <Route path="/store">
+            <Route path="/product">
               <Store />
             </Route>
             <Route path="/myaccount">
