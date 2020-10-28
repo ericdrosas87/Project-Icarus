@@ -1,12 +1,3 @@
-.details > a {
-  margin-bottom: 50px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-}
-
 .jumbotron {
   max-width: 90%;
   display: flex;
