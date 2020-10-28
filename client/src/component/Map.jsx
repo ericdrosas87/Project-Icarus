@@ -162,136 +162,141 @@ export default function App() {
   if (!isLoaded) return "Loading...";
   return (
     <div>
-      <h1>Icarus </h1>
+      <h1>Icharus Fence </h1>
       <Locate panTo={panTo} />
       <Search panTo={panTo} />
-      <GoogleMap
-        id="map"
-        mapContainerStyle={mapContainerStyle}
-        zoom={7}
-        center={center}
-        options={options}
-        onClick={onMapClick}
-        onLoad={onMapLoad}
-      >
-        <Circle
-          // required
+      <div className="map">
+        <GoogleMap
+          id="map"
+          mapContainerStyle={mapContainerStyle}
+          zoom={7}
           center={center}
-          // required
-          options={circle_options}
-        />
-        <Polygon
-          path={zoocoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={uofacoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={udallcoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={pimawcoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={himmelcoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={schscoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        <Polygon
-          path={chscoords}
-          //key={1}
-          options={{
-            fillColor: "#000",
-            fillOpacity: 0.4,
-            strokeColor: "#000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-          }}
-        />
-        {selected ? (
-          <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
-            onCloseClick={() => {
-              setSelected(null);
+          options={options}
+          onClick={onMapClick}
+          onLoad={onMapLoad}
+        >
+          <Circle
+            // required
+            center={center}
+            // required
+            options={circle_options}
+          />
+          <Polygon
+            path={zoocoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
             }}
-          >
-            <div>
-              <h2> Alert</h2>
-              <p>Location marked {formatRelative(selected.time, new Date())}</p>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
+          />
+          <Polygon
+            path={uofacoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          <Polygon
+            path={udallcoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          <Polygon
+            path={pimawcoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          <Polygon
+            path={himmelcoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          <Polygon
+            path={schscoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          <Polygon
+            path={chscoords}
+            //key={1}
+            options={{
+              fillColor: "#000",
+              fillOpacity: 0.4,
+              strokeColor: "#000",
+              strokeOpacity: 1,
+              strokeWeight: 1,
+            }}
+          />
+          {selected ? (
+            <InfoWindow
+              position={{ lat: selected.lat, lng: selected.lng }}
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+            >
+              <div>
+                <h2> Alert</h2>
+                <p>
+                  Location marked {formatRelative(selected.time, new Date())}
+                </p>
+              </div>
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
+      </div>
     </div>
   );
 }
 function Locate({ panTo }) {
   return (
-    <button
-      className="locate"
-      onClick={() => {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            panTo({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            });
-          },
-          () => null
-        );
-      }}
-    >
-      Find my current location!
-    </button>
+    <div className="locate">
+      <button
+        onClick={() => {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              panTo({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              });
+            },
+            () => null
+          );
+        }}
+      >
+        Search!
+      </button>
+    </div>
   );
 }
 function Search({ panTo }) {
@@ -324,12 +329,14 @@ function Search({ panTo }) {
   return (
     <div className="search">
       <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={handleInput}
-          disabled={!ready}
-          placeholder="Search your location"
-        />
+        <div className="search-input">
+          <ComboboxInput
+            value={value}
+            onChange={handleInput}
+            disabled={!ready}
+            placeholder="Search your location"
+          />
+        </div>
         <ComboboxPopover>
           <ComboboxList>
             {status === "OK" &&

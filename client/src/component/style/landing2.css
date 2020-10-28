@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /*
 colorway:
 blue- #7b9aa6
@@ -23,6 +17,7 @@ tan- #e6d9cb
   color: #f2f2f2;
   font-weight: 900;
   margin: 20px;
+  padding: 10px;
 }
 .statement h4 {
   color: black;
@@ -190,7 +185,6 @@ section {
     background: #7b9aa6;
     font-weight: 900;
     margin: 20px;
-    margin-left: 200px;
   }
   .landing2 {
     width: 90vw;
