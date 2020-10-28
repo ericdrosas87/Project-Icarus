@@ -7,7 +7,7 @@ function Contact() {
     <div className="contact animate__animated animate__zoomIn">
       <h1 className="logo animate__animated animate__heartBeat">
         <FontAwesomeIcon icon="feather-alt" />
-        <span>project</span>Icharus
+        <span>Project </span>Icarus
       </h1>
       <div className="wrap">
         <div className="contact-info">

@@ -6,9 +6,9 @@ import { auth } from "../config/firebaseDB";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [{ orders, user }] = useStateValue();
+  const [{ user }] = useStateValue(); 
 
-  console.log("current user >>", user);
+  // console.log("current user >>", user);
 
   // this button function once clicked checks if there is a user in useStateValue if there is it will sign them out.
   const login = () => {
@@ -21,14 +21,14 @@ function Navbar() {
     <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light animate__animated animate__slideInDown">
       <a className="navbar-brand" href="/">
         <FontAwesomeIcon icon="feather-alt" />
-        <span>p:</span>Icharus
+        <span>p:</span>Icarus
       </a>
       <button
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
-        aria-controls="navbarNav"
+        aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -41,41 +41,31 @@ function Navbar() {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link to="/about">
-              <a className="nav-link">
-                <span>About</span>
-              </a>
+                <span className="nav-link">About</span>
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to="/store">
-              <a className="nav-link">
-                <span>Store</span>
-              </a>
+            <Link to="/product">
+                <span className="nav-link">Product</span>
             </Link>
           </li>
 
           <li className="nav-item">
             <Link to="/contact">
-              <a className="nav-link">
-                <span>Contact Us</span>
-              </a>
+                <span className="nav-link">Contact Us</span>
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to={user && "/map"}>
-              <a className="nav-link">
-                <span>{user ? "GPS" : null} </span>
-              </a>
+            <Link to="/map">
+                <span className="nav-link">{user ? 'Map' : null} </span>
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to={user && "/myaccount"}>
-              <div className="nav-link">
-                <span>{user ? "My Account" : ""}</span>
-              </div>
+            <Link to="/myaccount">
+                <span className="nav-link">{user ? "My Account" : null}</span>
             </Link>
           </li>
 
