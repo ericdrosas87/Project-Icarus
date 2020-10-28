@@ -21,6 +21,7 @@ import {
 import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
 import mapStyles from "./mapstyles.jsx";
+import "./style/map.css";
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "80vh",

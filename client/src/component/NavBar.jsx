@@ -27,8 +27,8 @@ function Navbar() {
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -66,7 +66,7 @@ function Navbar() {
           <li className="nav-item">
             <Link to={user && "/map"}>
               <a className="nav-link">
-                <span>{user ? 'GPS' : null} </span>
+                <span>{user ? "GPS" : null} </span>
               </a>
             </Link>
           </li>
@@ -80,7 +80,7 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link to={!user && '/login' || user && '/'}>
+            <Link to={(!user && "/login") || (user && "/")}>
               <div onClick={login} className="nav-link">
                 <span>{user ? "Sign out" : "Sign In/Register"}</span>
               </div>

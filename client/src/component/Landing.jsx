@@ -1,7 +1,7 @@
 import React from "react";
 import "./style/landing.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import Slideshow from "./Slideshow";
 
 function Landing() {
@@ -14,11 +14,11 @@ function Landing() {
         <h1>Welcome To Project Icharus</h1>
         <Slideshow />
       </div>
-/*needs styling*/
-      <Link to='/login'>
-        <button> Sign In</button>
-      </Link>
-
+      <div className="log-btn">
+        <Link to="/login">
+          <button className="sign-btn"> Sign In</button>
+        </Link>
+      </div>
     </div>
   );
 }

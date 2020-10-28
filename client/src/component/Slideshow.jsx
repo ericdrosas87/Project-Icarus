@@ -42,20 +42,20 @@ class Slideshow extends React.Component {
           </Page>
           <Page className="slide One">
             <div>Image 1</div>
-            <div className="image">
-              <img src="client\public\images\topView.png" />
+            <div className=" clsAutoFit">
+              <img src="client\public\images\topView.png" className="clsImg" />
             </div>
           </Page>
           <Page className="slide Two">
             <div>Image 2</div>
-            <div className="image">
-              <img src="./images/sideView.png" />
+            <div className="clsAutoFit">
+              <img src="./images/sideView.png" className="clsImg" />
             </div>
           </Page>
           <Page className="slide Three">
             <div>Image 3</div>
-            <div className="image">
-              <img src="./images/closehandle.png" />
+            <div className="clsAutoFit">
+              <img src="./images/closehandle.png" className="clsImg" />
             </div>
           </Page>
         </Slider>

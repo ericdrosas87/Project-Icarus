@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+colorway:
+blue- #7b9aa6
+white- #ffffff
+grey- #f2f2f2
+dygrey- #a69b8f
+tan- #e6d9cb
+*/
+.statement {
+  max-width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background: #7b9aa6;
+  color: #f2f2f2;
+  font-weight: 900;
+  margin: 20px;
+}
+.statement h4 {
+  color: black;
+}
+.statement h5 {
+  font-weight: 500;
+  font-size: 3em;
+}
+
+section {
+  width: 80vw;
+  max-width: 1080px;
+}
+
+.landing2 {
+  width: 90vw;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  height: 100%;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    " icon1 pic1 pic2 "
+    " info1 info1 pic2 "
+    " pic3 icon2 pic2 "
+    " pic3 info2 info2 "
+    " pic3 pic4 icon3 "
+    " info3 info3 info3 ";
+}
+
+.icon1 {
+  grid-area: icon1;
+  background: #a69b8f;
+  object-fit: fill;
+}
+.icon2 {
+  grid-area: icon2;
+  background: #a69b8f;
+}
+.icon3 {
+  grid-area: icon3;
+  background: yellow;
+  background: url("./images/360close.jpg");
+  max-width: 350px;
+  max-height: 275px;
+}
+.info1 {
+  grid-area: info1;
+  background: #7b9aa6;
+}
+.info2 {
+  grid-area: info2;
+  background: #7b9aa6;
+  padding: 30px;
+  color: #f2f2f2;
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: " dir1 dir2 ";
+}
+.info2 .dir1 {
+  grid-area: dir1;
+}
+.info2 .dir2 {
+  grid-area: dir2;
+}
+.info2 li {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  list-style-type: square;
+}
+.info3 {
+  grid-area: info3;
+  background: #7b9aa6;
+}
+
+.landing2 .icon {
+  font-size: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.2);
+  margin-left: 65px;
+  margin-right: 65px;
+}
+
+.landing2 .iconSee {
+  font-size: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.6);
+  margin-left: 65px;
+  margin-right: 65px;
+}
+
+/* .landing2 img {
+  min-width: 100px;
+  min-height: 150px;
+  object-fit: contain;
+} */
+
+.pic1 {
+  background: chartreuse;
+  grid-area: pic1;
+  background: url("./images/360side.jpg");
+  max-width: 350px;
+  border-bottom: solid 7px #a69b8f;
+  border-top: solid 7px #a69b8f;
+}
+.pic2 {
+  background: turquoise;
+  background: url("./images/landing-phoenix.JPG");
+  grid-area: pic2;
+  max-height: 780px;
+}
+
+.pic3 {
+  background: orchid;
+  background: url("./images/landing-tucson.JPG");
+  grid-area: pic3;
+  max-height: 780px;
+}
+
+.pic4 {
+  background: #a69b8f;
+  grid-area: pic4;
+  max-width: 350px;
+}
+
+.pic5 {
+  background: #a69b8f;
+  background: url("./images/360close.jpg");
+  grid-area: pic5;
+  max-width: 350px;
+  max-height: 275px;
+  visibility: hidden;
+}
+
+.pic6 {
+  background: #a69b8f;
+  background: url("./images/360top.jpg");
+  grid-area: pic6;
+  background: yellow;
+  max-width: 350px;
+  visibility: hidden;
+}
+
+@media (max-width: 900px) {
+  .statement {
+    width: 85%;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    color: #f2f2f2;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background: #7b9aa6;
+    font-weight: 900;
+    margin: 20px;
+    margin-left: 200px;
+  }
+  .landing2 {
+    width: 90vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      " icon1 pic1 "
+      " info1 info1 "
+      " icon3 icon2 "
+      " info2 info2 "
+      " pic6 pic5 "
+      " info3 info3 ";
+  }
+
+  .pic4 {
+    visibility: hidden;
+  }
+  .pic5 {
+    background: #a69b8f;
+    background: url("./images/360view.jpg");
+    grid-area: pic5;
+    max-width: 350px;
+    max-height: 275px;
+    visibility: visible;
+  }
+  .pic6 {
+    background: #a69b8f;
+    background: url("./images/360top.jpg");
+    grid-area: pic6;
+    max-width: 350px;
+    visibility: visible;
+  }
+  .landing2 .icon {
+    font-size: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0, 0.2);
+    margin-left: 45px;
+    margin-right: 40px;
+  }
+
+  .landing2 .iconSee {
+    font-size: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0, 0.6);
+    margin-left: 35px;
+  }
+
+  .pic3,
+  .pic2 {
+    visibility: hidden;
+  }
+}

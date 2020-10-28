@@ -19,6 +19,8 @@ import {
   faVoteYea,
   faBalanceScale,
   faFingerprint,
+  faInfoCircle,
+  faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   fab,
@@ -30,7 +32,9 @@ library.add(
   faSchool,
   faVoteYea,
   faBalanceScale,
-  faFingerprint
+  faFingerprint,
+  faInfoCircle,
+  faListAlt
 );
 
 ReactDOM.render(
