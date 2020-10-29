@@ -39,9 +39,11 @@ function Product({ name, image }) {
             <div className="product__info">
                 <h2>{name}</h2>
 
-                <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, molestiae?
-                    Tempore quis veritatis tempora ullam quia alias placeat repellat quasi pariatur fuga provident, 
-                    dolorem, ratione nobis impedit, eius nulla sint?
+                <p>
+                The current prototype of Daedalus Sol is a successful proof of concept in regards to part integration, 
+                functionality, and style. While the current version is 3-D printed ABS plastic, future models will be available 
+                in forged aluminum. These models will also include a custom trigger grouping, grip with the electronics injection 
+                molded, and the Geo-fence safety system pre-integrated.
                 </p>
                 
                 <div className="product__buttons">
@@ -75,7 +77,7 @@ function Product({ name, image }) {
           <Modal.Header>
             <Modal.Title>User Required</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Please Sign In or Register to Contine</Modal.Body>
+          <Modal.Body>Please Sign In or Register to Continue</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close

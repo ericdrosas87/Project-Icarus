@@ -1,13 +1,26 @@
+.item {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-end;
+    padding: 20px;
+    margin: 10px;
+    
+}
+
 .item__image {
-    width: 25%;
+    width: 15%;
 }
 
 .delete__button {
     margin-top: 30px;
+    align-content: center;
 }
 
-.item__buttons {
-    align-items: center;
-    justify-items: auto;
+.item__buttons > button {
+    margin: 10px;
+    padding: 10px;
+    align-self: center;
 }
 

@@ -8,7 +8,7 @@ export const initialState = {
 
 function reducer(state, action) {
     // this console log is important 
-    console.log(action)
+    // console.log(action)
 
     switch(action.type){
 

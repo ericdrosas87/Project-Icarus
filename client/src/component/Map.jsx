@@ -294,7 +294,7 @@ function Locate({ panTo }) {
           );
         }}
       >
-        Search!
+        Get Current Location
       </button>
     </div>
   );

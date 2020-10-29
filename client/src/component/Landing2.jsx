@@ -7,7 +7,7 @@ function Landing2() {
     <div>
       <div className="statement">
         <h3>Project Icharus</h3>
-        <h4>Mission Statement:</h4>
+        <h4>Welcome</h4>
         <h5>
           Our goal at Icarus is to create a safer future for students, families,
           and patrons in communities around the nation.

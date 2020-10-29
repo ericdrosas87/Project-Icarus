@@ -28,32 +28,30 @@ function UserInterface() {
     const deleteUser = () => {
         auth.currentUser.delete()
     } 
- 
 
-    
-
-    console.log('this is the preOrders state', preOrders)
+    // console.log('this is the preOrders state', preOrders)
 
     return (
-        <div className="jumbotron Main">
+        <div className=" jumbotron main">
             <h1>{user ? user.email : "Please Sign In"}</h1>
 
             <div className="details">
-                <h3>Here we will show account information</h3>
+                <h3>Device Information</h3>
 
-                <Link to='/404'>
+                <Link to='/product'>
                  <h4>Connect New Product</h4>
                 </Link>
-                <br/>
                 
             </div>
 
             <h2>You currently have {preOrders.length} Device{preOrders.length > 1 || preOrders.length < 1 ? "s" : ""}</h2>
-    
-            {preOrders ? (
-                <div className="display" key={preOrders._id}>
+
+            <div className="display">
+                {preOrders ? (
+                <div key={preOrders._id}>
                     {preOrders.map(items => (
                     <Item
+                    key={items._id}
                     id={items._id}
                     name={items.name}
                     image={items.image}
@@ -61,7 +59,9 @@ function UserInterface() {
                     ))}
                 </div>
                 
-            ): null}
+                ): null}
+            </div>
+            
 
             <button className="delete__button" onClick={handleOpen}>Delete Account</button>
 
@@ -70,7 +70,7 @@ function UserInterface() {
                     <Modal.Header>
                         <Modal.Title>Deleting Account</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Deleting your Account will remove all Geo-fenced locations as well as you current Products.
+                    <Modal.Body>Deleting your Account will remove all Geo-fenced locations as well as your current Products.
                         <br/>
                         Would you like to Contine?
                     </Modal.Body>
