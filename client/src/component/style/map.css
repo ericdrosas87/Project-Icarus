@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mapContainer {
+  margin: 25px;
+  margin-left: 30px;
+  margin-right: 30px;
+  max-width: auto;
+  max-height: auto;
+  border: black 2px solid;
+  grid-area: map;
+}
+
+.map {
+  border: black solid 2px;
+  margin: 10px;
+}
+
+.locate {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgb(123, 154, 166, 0.9);
+}
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgb(123, 154, 166);
+}
