@@ -18,6 +18,55 @@
   clip-path: circle(180vh at 50% center);
 }
 
-.slideshow {
-  width: 100px;
+.bg {
+}
+.sign {
+  font-size: 12em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0px;
+}
+
+.slide {
+  margin-top: -500px;
+}
+
+.log-btn {
+  margin-top: -25px;
+}
+
+.log-btn button {
+  flex-direction: row;
+  background: rgb(123, 154, 166, 0.3);
+  border-radius: 6px;
+  color: #f2f2f2;
+  max-width: 100px;
+  margin: 50px;
+  padding: 8px 10px;
+  box-shadow: none;
+}
+
+.log-btn button:hover,
+.log-btn button:focus {
+  /*darker color for hover*/
+  background: #506269;
+  color: black;
+  font-weight: 500;
+  transition: background-color 0.5s ease-out;
+}
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__fadeIn {
+  --animate-duration: 10s;
+}
+
+@media (max-width: 700px) {
+  .sign {
+    font-size: 7em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 130;
+  }
+  .slide {
+    margin-top: -300px;
+    max-width: 90vw;
+  }
 }

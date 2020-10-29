@@ -52,6 +52,9 @@ ul {
   background: #f2f2f2;
 }
 /*-contact style-*/
+.contactIcon {
+  margin-right: 5px;
+}
 
 .contact form {
   display: grid;
@@ -81,6 +84,7 @@ ul {
 
 .contact form input {
   height: 32px;
+  color: black;
 }
 
 .contact form button {

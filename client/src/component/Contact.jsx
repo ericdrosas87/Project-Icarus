@@ -7,7 +7,7 @@ function Contact() {
     <div className="contact animate__animated animate__zoomIn">
       <h1 className="logo animate__animated animate__heartBeat">
         <FontAwesomeIcon icon="feather-alt" />
-        <span>project</span>Icharus
+        <span>Project </span>Icarus
       </h1>
       <div className="wrap">
         <div className="contact-info">
@@ -29,7 +29,11 @@ function Contact() {
         </div>
         <div className="contact-note">
           <h3>Email Us</h3>
-          <form id="contact-form">
+          <form
+            id="contact-form"
+            action="https://submit-form.com/KLdKx8zV"
+            target="_self"
+          >
             <p>
               <label>Name:</label>
               <input type="text" name="name" id="name"></input>

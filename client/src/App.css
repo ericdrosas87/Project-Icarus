@@ -27,11 +27,3 @@
     transform: rotate(360deg);
   }
 }
-
-.navbar {
-  z-index: 1;
-}
-
-.wrapper {
-  z-index: -1;
-}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style/login.css";
@@ -16,9 +16,11 @@ export default function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         // once successful redirect to homepage
+        
         history.push("/");
       })
       .catch((e) => alert(e.message));
+
   };
 
   const register = (e) => {
@@ -33,6 +35,7 @@ export default function Login() {
       })
       .catch((e) => alert(e.message));
   };
+
 
   return (
     <div className="section">
@@ -58,24 +61,21 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
-            <label className="remember">
-              <input type="checkbox" />
-              Remember Me
-            </label>
-          </form>
-          <div className="buttonBox">
-            <button
+          
+            <div className="buttonBox">
+              <button
               onClick={login}
               type="submit"
               className="login__signInButton"
-            >
+              >
               Sign In
-            </button>
+              </button>
 
-            <button onClick={register} className="login__registerButton">
-              Register
-            </button>
-          </div>
+              <button onClick={register} className="login__registerButton">
+                Register
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <div className="logo">

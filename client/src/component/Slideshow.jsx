@@ -23,12 +23,12 @@ class Slideshow extends React.Component {
           slidesToShow={1}
           slidesToScroll={1}
         >
-          <Page className="slide logo1">
+          {/* <Page className="slide logo1">
             <div className="icon">
               <FontAwesomeIcon icon="feather-alt" />
             </div>
             <span>project</span>Icharus
-          </Page>
+          </Page> */}
           <Page className="slide mission">
             <h3>Project Icharus</h3>
             <h4>Mission Statement:</h4>
@@ -42,20 +42,20 @@ class Slideshow extends React.Component {
           </Page>
           <Page className="slide One">
             <div>Image 1</div>
-            <div className="image">
-              <img src="./images/topView.png" />
+            <div className=" clsAutoFit">
+              <img src="client\public\images\topView.png" className="clsImg" />
             </div>
           </Page>
           <Page className="slide Two">
             <div>Image 2</div>
-            <div className="image">
-              <img src="./images/sideView.png" />
+            <div className="clsAutoFit">
+              <img src="./images/sideView.png" className="clsImg" />
             </div>
           </Page>
           <Page className="slide Three">
             <div>Image 3</div>
-            <div className="image">
-              <img src="./images/closehandle.png" />
+            <div className="clsAutoFit">
+              <img src="./images/closehandle.png" className="clsImg" />
             </div>
           </Page>
         </Slider>

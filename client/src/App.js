@@ -4,19 +4,19 @@ import "./App.css";
 import Login from "./component/Login";
 import Contact from "./component/Contact";
 import Map from "./component/Map";
-/* import NavBar from "./component/NavBar"; */
-import NavBar2 from "./component/NavBar2";
+import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import Wrapper from "./component/Wrapper";
-import Landing from "./component/Landing";
+/* import Landing from "./component/Landing"; */
+import Landing2 from "./component/Landing2";
 import Info from "./component/Info";
 import Store from "./component/Store";
-import UserInterface from "./component/UserInterface";
-
+import UserInterface from "./component/myaccount/components/UserInterface";
+import NotFound from "./component/NotFound";
 import { useStateValue } from "./utils/StateProvider";
 import { auth } from "./config/firebaseDB";
 
-function App() {
+export function App() {
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -39,41 +39,40 @@ function App() {
     };
   }, []);
 
-  console.log("user is >>>", user);
+  // console.log("user is >>>", user);
   return (
     <div className="app">
       <Router>
-        <div className="navbar">
-          <NavBar2 />
-        </div>
-        <div className="wrapper">
-          <Wrapper>
-            <Switch>
-              <Route path="/about">
-                <Info />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/map">
-                <Map />
-              </Route>
-              <Route path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/store">
-                <Store />
-              </Route>
-              <Route path="/myaccount">
-                <UserInterface />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
-            <Footer />
-          </Wrapper>
-        </div>
+        <NavBar />
+        <Wrapper>
+          <Switch>
+            <Route path="/about">
+              <Info />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/map">
+              <Map />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/product">
+              <Store />
+            </Route>
+            <Route path="/myaccount">
+              <UserInterface />
+            </Route>
+            <Route path="/404">
+              <NotFound />
+            </Route>
+            <Route path="/">
+              <Landing2 />
+            </Route>
+          </Switch>
+          <Footer />
+        </Wrapper>
       </Router>
     </div>
   );

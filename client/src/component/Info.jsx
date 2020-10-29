@@ -12,49 +12,34 @@ function Info() {
       <div className="block info1 animate__animated animate__slideInDown">
         <img src="./images/placeHolder1.JPG" alt="image1" />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in
-          fermentum posuere urna nec tincidunt. Ultricies leo integer malesuada
-          nunc vel risus commodo viverra. Commodo quis imperdiet massa
-          tincidunt.
+          <strong>Jesus Rios</strong>
+          <br/>
+          The Project Icarus idea for me sounds like an incredible steps in the right direction in regards to community responsibility.
+          Giving Users the choice of where they can use their firearms is extremely powerful and helpful.
+          Working on this project for me was a really eye opening experience, not having much knowledge in firearms made me realize 
+          just how important firearms can be for people all over the country.
+          In my eyes this concept was created to offer a choice in firearm protection.
         </p>
       </div>
       <div className="block info2 animate__animated animate__slideInRight">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Et
-          pharetra pharetra massa massa ultricies mi quis. Quis varius quam
-          quisque id diam vel quam elementum. Scelerisque purus semper eget
-          duis.
+        Working on the development of this project was an exciting process for me as I believe the product Icarus is developing
+        is the step forward we need to continue towards the middle-ground of 
+        gun ownership vs. gun violence
         </p>
+        <strong>Zach Sattinger</strong>
         <img src="./images/placeHolder.JPG" alt="image2" />
+        
       </div>
       <div className="block info3 animate__animated animate__zoomIn">
         <img src="./images/placeHolder5.JPG" alt="image3" />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel
-          orci porta non pulvinar neque laoreet. Sit amet consectetur adipiscing
-          elit duis tristique sollicitudin. Ac feugiat sed lectus vestibulum
-          mattis ullamcorper velit sed.
-        </p>
-      </div>
-      <div className="block info4 animate__animated animate__slideInLeft">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui ut
-          ornare lectus sit amet est placerat. Iaculis urna id volutpat lacus
-          laoreet non. Ultrices gravida dictum fusce ut.
-        </p>
-        <img src="./images/placeHolder3.JPG" alt="image1" />
-      </div>
-      <div className="block info5 animate__animated animate__slideInUp">
-        <img src="./images/placeHolder4.JPG" alt="image1" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum
-          leo vel orci porta. Turpis massa sed elementum tempus egestas sed.
-          Nulla malesuada pellentesque elit eget gravida.
+        <strong>David Dawkins</strong>
+        <br/>
+        Project Icharus is a concept that involves the community and national well-being. 
+        This concept is one i hope to see much more of in some form or fashion. The  convenience 
+        of knowing where you are is a bit more secure is always a good thing. Creativity with sound 
+        concepts can lead to great ideas for the future.
         </p>
       </div>
     </div>

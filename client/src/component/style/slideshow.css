@@ -4,7 +4,7 @@
 }
 
 .slider {
-  border: black 1px solid;
+  /* border: black 1px solid; */
   max-height: 90vh;
   max-width: 90vw;
 }
@@ -20,11 +20,6 @@
 h4,
 h5 {
   color: #a69b8f;
-}
-
-.image {
-  width: auto;
-  height: auto;
 }
 
 .logo1 {
@@ -52,8 +47,12 @@ div {
   align-items: center;
 }
 
-.image img {
-  min-height: 400px;
-  max-width: 1000px;
-  max-height: 600px;
+.clsAutoFit {
+  height: 200px;
+  width: 200px;
+}
+
+.clsAutoFit img {
+  max-width: 100%;
+  max-height: 100%;
 }

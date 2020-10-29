@@ -1,13 +1,11 @@
 const mongoose =require('mongoose')
 const Schema = mongoose.Schema;
 
-const userInfo = new Schema ({
-    name:{type :String, required:true},
-    address:{type: String, required:true},
-    email:{type: String, required:true},
-    phone:{type: Number, required:true}
+const product = new Schema ({
+    name: String,
+    image: Array
 })
 
-const Patreon = mongoose.model('Patreon', userInfo);
+const Product = mongoose.model('Product', product);
 
-module.exports = Patreon;
+module.exports = Product
