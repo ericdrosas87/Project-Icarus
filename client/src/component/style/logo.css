@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f2f2f2;
+}
+
+.icon {
+  position: relative;
+  color: #a69b8f;
+  font-size: 6em;
+  text-shadow: 0 0 50px rgba(123, 154, 166, 1), 0 0 100px rgba(123, 154, 166, 1),
+    0 0 150px rgba(123, 154, 166, 1), 0 0 200px rgba(123, 154, 166, 1),
+    0 0 250px rgba(123, 154, 166, 1);
+  animation: animateLogo 5s linear infinite;
+}
+
+.box span {
+  color: #d62727;
+}
+
+@keyframes animateLogo {
+  0% {
+    filter: drop-shadow(16px 16px 0px #7b9aa6);
+  }
+  50% {
+    filter: drop-shadow(16px 16px 0px #1a02f3);
+  }
+  100% {
+    filter: drop-shadow(16px 16px 0px #7b9aa6);
+  }
+}
