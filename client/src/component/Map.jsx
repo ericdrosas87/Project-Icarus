@@ -20,7 +20,7 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
-import mapStyles from "./mapStyles.jsx";
+import MapStyles from "./MapStyles.jsx";
 import "./style/map.css";
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -28,7 +28,7 @@ const mapContainerStyle = {
   width: "80vw",
 };
 const options = {
-  styles: mapStyles,
+  styles: MapStyles,
   disableDefaultUI: true,
   zoomControl: false,
 };
