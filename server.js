@@ -6,7 +6,13 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 
 mongoose.connect(
-  process.env.MONGOD_URI || "mongodb://localhost/projectIcharus"
+  process.env.MONGOD_URI || "mongodb://localhost/projectIcharus",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
 );
 
 app.use(express.urlencoded({ extended: true }));
